@@ -21,10 +21,18 @@ box-shadow: 0px 0px 8px 1px #888888;"
             <div>
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
                     aria-controls="offcanvasScrolling">
+                    
                     <img style="width: 30px;background: white;border-radius: 100px"
-                        src=" @if (isset(Auth::user()->profile_photo_path)) {{ Auth::user()->profile_photo_path }}
-                        @else 
-                        https://cdn-icons-png.flaticon.com/512/149/149071.png @endif"
+                        src=" @if (isset(Auth::user()->socialite_id))
+                        {{Auth::user()->profile_photo_path}}
+                        @else
+                        
+                        @if (isset(Auth::user()->profile_photo_path))
+
+                            {{asset('storage\profile')}}\{{Auth::user()->profile_photo_path}}
+                            @else
+                            https://cdn-icons-png.flaticon.com/512/149/149071.png @endif 
+                            @endif"
                         alt="/icon/free-user-icon-3296-thumb.png">
                 </button>
 
@@ -96,11 +104,20 @@ box-shadow: 0px 0px 8px 1px #888888;"
                         </div>
                         <div class="offcanvas-body text-center">
                             <img style="width: 50px;background: white;border-radius: 100px"
-                                src="
+                           
+                            src="
+                            @if (isset(Auth::user()->socialite_id))
+                            {{Auth::user()->profile_photo_path}}
+                            @else
+                            
+                            @if (isset(Auth::user()->profile_photo_path))
 
-                                @if (isset(Auth::user()->profile_photo_path)) {{ Auth::user()->profile_photo_path }}
-                                @else 
-                                https://cdn-icons-png.flaticon.com/512/149/149071.png @endif"
+                                {{asset('storage\profile')}}\{{Auth::user()->profile_photo_path}}
+                                @else
+                                https://cdn-icons-png.flaticon.com/512/149/149071.png @endif 
+                                @endif
+                                "
+
                                 alt="/icon/free-user-icon-3296-thumb.png">
 
                             <p>{{ Auth::user()->email }}</p>
@@ -112,7 +129,7 @@ box-shadow: 0px 0px 8px 1px #888888;"
                             </div>
 
                             <div class="text-center mb-4">
-                                FFFFF
+                                Add social+
                             </div>
                             <form action=" {{ route('logout') }} " method="POST" class="text-center">
                                 @csrf

@@ -148,7 +148,7 @@
                                 <input type="hidden" value="{{ $googleUser->email }}" name="email" />
                                 <input type="hidden" name="role" value="{{ 1 }}" />
                                 <input type="hidden" value="{{ $googleUser->name }}" name="name" />
-                                <input type="hidden" value="{{ $googleUser->avatar }}" name="profile_photo_path" />
+                                <input type="hidden" value="{{ $googleUser->avatar }}" name="social_photo_path" />
                                 <input type="hidden" value="{{ $googleUser->id }}" name="socialite_id" />
 
 

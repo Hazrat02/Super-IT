@@ -24,6 +24,7 @@ class sociallog extends Controller
             // return redirect('user/parsials/home');
             return redirect()->route('dashboard');
         } else {
+            // dd($googleUser);
             return view('auth\socialauth', compact('googleUser'));
         }
     }

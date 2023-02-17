@@ -22,7 +22,9 @@
             <div class="col-md-4">
                 <h3>Developer Review</h3>
                 <div class="text-center"  style="background-color: azure ;color: black ; border-bottom-left-radius: 30%;border-top-right-radius: 30%" class="p-4 ">
-                    <img class="m-2" style="width: 60px ;border-radius: 100% ; border:solid blue 3px" src="https://scontent.fdac139-1.fna.fbcdn.net/v/t39.30808-6/299142712_1218324159000697_4217864151297654068_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_aid=0&_nc_eui2=AeFPGo2TSWUJ73QTgoq3HYZzbtHSDVg_PmJu0dINWD8-YhXs-gU2Qv2UCKtFl-8wvkH5yEweoVNk1y87D8_UkL0u&_nc_ohc=becWVsE6WowAX-ZMgOF&_nc_zt=23&_nc_ht=scontent.fdac139-1.fna&oh=00_AfB5mYkmbpwDJis--H197WGH27AnvGoqt3s6gTY4qy9NVg&oe=63C7BA35" alt="">
+                    <img class="m-2" style="width: 60px ;border-radius: 100% ;
+                     border:solid blue 3px" 
+                     src="https://scontent.fdac34-1.fna.fbcdn.net/v/t39.30808-1/327777647_743737100696616_3969370136552412552_n.jpg?stp=dst-jpg_p160x160&_nc_cat=106&ccb=1-7&_nc_sid=f67be1&_nc_eui2=AeGMyiKB2pXv3zX7WYKYH_vzETMbvwDGx1sRMxu_AMbHWwEPBO8T9zSEAKql-i_0UsHUaZPYAw-q4C7bP09yMSvm&_nc_ohc=cEs3uinSNeIAX9d2K0R&_nc_ht=scontent.fdac34-1.fna&oh=00_AfBH6YPBozfW7rTWSAHtjapQRNiSC9W7vd2KPcLEdBn1Ew&oe=63F1F5A3" alt="">
                     <p style="font-family: 'EB Garamond', serif;">I am Developer  of this website and I am proud of the work we have done. We strive to provide the best
                         user experience and customer service possible.</p>
                     <p style="font-family: 'EB Garamond', serif;">Thank you for visiting and I hope you enjoy our website!</p>

@@ -9,7 +9,7 @@
             @include('admin.home')
         @endsection
     @else
-        @include('user\parsials\home')
+        @include('user\parsials\deshbord')
 
     @endif
 
