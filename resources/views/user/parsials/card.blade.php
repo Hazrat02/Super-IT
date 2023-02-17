@@ -1,9 +1,7 @@
-
- <link rel="stylesheet" href="{{ asset('user/dist/') }}/assets/css/theme.bundle.css" />
+<link rel="stylesheet" href="{{ asset('user/dist/') }}/assets/css/theme.bundle.css" />
 @extends('user\layouts\app')
 
 @section('usermain')
-
     <!-- Main Section-->
     <section class="mt-0 overflow-lg-hidden  vh-lg-100">
         <!-- Page Content Goes Here -->
@@ -34,52 +32,83 @@
                         </nav>
                         <div class="mt-5">
                             <h3 class="fs-5 fw-bolder mb-0 border-bottom pb-4">Your Cart</h3>
-                            <div class="table-responsive">
-                                <table class="table align-middle">
-                                    <tbody class="border-0">
-                                        <!-- Cart Item-->
-                                        <div class="row mx-0 py-4 g-0 border-bottom">
-                                            <div class="col-2 position-relative">
-                                                <picture class="d-block border">
-                                                    <img class="img-fluid" src="./assets/images/products/product-cart-1.jpg"
-                                                        alt="HTML Bootstrap Template by Pixel Rocket">
-                                                </picture>
-                                            </div>
-                                            <div class="col-9 offset-1">
-                                                <div>
-                                                    <h6 class="justify-content-between d-flex align-items-start mb-2">
-                                                        Nike Air VaporMax 2021
-                                                        <i class="ri-close-line ms-3"></i>
-                                                    </h6>
-                                                    <span class="d-block text-muted fw-bolder text-uppercase fs-9">Size: 9 /
-                                                        Qty: 1</span>
+                            <!-- Cart Item-->
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-md-12 ">
+                                    <div class="card shadow-0 border rounded-3">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                                    <div
+                                                        class="bg-image hover-zoom ripple rounded ripple-surface">
+                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/new/img(5).webp"
+                                                            class="w-100" />
+                                                        <a href="#!">
+                                                            <div class="hover-overlay">
+                                                                <div class="mask"
+                                                                    style="background-color: rgba(253, 253, 253, 0.15);">
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                                <p class="fw-bolder text-end text-muted m-0">$85.00</p>
-                                            </div>
-                                        </div> <!-- / Cart Item-->
-                                        <!-- Cart Item-->
-                                        <div class="row mx-0 py-4 g-0 border-bottom">
-                                            <div class="col-2 position-relative">
-                                                <picture class="d-block border">
-                                                    <img class="img-fluid" src="./assets/images/products/product-cart-2.jpg"
-                                                        alt="HTML Bootstrap Template by Pixel Rocket">
-                                                </picture>
-                                            </div>
-                                            <div class="col-9 offset-1">
-                                                <div>
-                                                    <h6 class="justify-content-between d-flex align-items-start mb-2">
-                                                        Nike ZoomX Vaporfly
-                                                        <i class="ri-close-line ms-3"></i>
-                                                    </h6>
-                                                    <span class="d-block text-muted fw-bolder text-uppercase fs-9">Size: 11
-                                                        / Qty: 1</span>
+                                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                                    <h5>Quant ruybi shirts</h5>
+                                                    <div class="d-flex flex-row">
+                                                        <div class="text-danger mb-1 me-2">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                        <span>145</span>
+                                                    </div>
+                                                    <div class="mt-1 mb-0 text-muted small">
+                                                        <span>100% cotton</span>
+                                                        <span class="text-primary"> • </span>
+                                                        <span>Light weight</span>
+                                                        <span class="text-primary"> • </span>
+                                                        <span>Best finish<br /></span>
+                                                    </div>
+                                                    <div class="mb-2 text-muted small">
+                                                        <span>Unique design</span>
+                                                        <span class="text-primary"> • </span>
+                                                        <span>For women</span>
+                                                        <span class="text-primary"> • </span>
+                                                        <span>Casual<br /></span>
+                                                    </div>
+                                                    
                                                 </div>
-                                                <p class="fw-bolder text-end text-muted m-0">$125.00</p>
+                                              
+                                                <div
+                                                
+                                                    class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none 
+                                                    border-start">
+                                                    <div class="text-end ">
+
+                                                        <i  class="ri-close-line ms-3 "></i>
+                                                    </div>
+                                                    
+                                                    <div class="d-flex flex-row align-items-center mb-1">
+                                                        
+                                                        <h4 class="mb-1 me-1">$17.99</h4>
+                                                        <span class="text-danger"><s>$25.99</s></span>
+                                                    </div>
+                                                    <h6 class="text-success">Free shipping</h6>
+                                                    <div class="d-flex flex-column ">
+                                                        
+                                                        <button class="btn btn-outline-primary btn-sm "
+                                                            type="button">
+                                                           Details
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div> <!-- / Cart Item-->
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- / Cart Item-->
+                            <!-- Cart Item-->
                         </div>
                     </div>
                 </div>
@@ -100,7 +129,8 @@
                                 <button class="btn btn-secondary btn-sm px-4">Apply</button>
                             </div>
                         </div>
-                        <a href="{{route('buy.information')}}" class="btn btn-dark w-100 text-center" role="button">Proceed to
+                        <a href="{{ route('buy.information') }}" class="btn btn-dark w-100 text-center"
+                            role="button">Proceed to
                             checkout</a>
                     </div>
                 </div>

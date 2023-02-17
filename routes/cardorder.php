@@ -16,6 +16,7 @@ Route::get('buy/information', [cardordercontroller::class,'information'])->name(
 Route::get('buy/information', [cardordercontroller::class,'information'])->name('buy.information');
 Route::post('order.information', [cardordercontroller::class,'orderinformation'])->name('order.information');
 Route::get('order/payment', [cardordercontroller::class,'orderpayment'])->name('order.payment');
+Route::get('order/addtocard', [cardordercontroller::class,'addtocard'])->name('addtocard');
 
 Route::middleware(['auth'])->group(function () { 
 

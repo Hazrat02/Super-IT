@@ -1,9 +1,4 @@
-
-
-
-
-
- @extends('user\layouts\app')
+@extends('user\layouts\app')
 
 @section('usermain')
     <style>
@@ -68,6 +63,7 @@
                 background-image: linear-gradient(110deg, rgba(146, 199, 202, 0.719) 50%,
                         rgba(18, 33, 36, 0.412) 50%), url('https://scontent.fdac139-1.fna.fbcdn.net/v/t39.30808-6/320383437_687048936343112_7114423443231015868_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeFiUXXnJHudYmcEHhu-rXumA5LYrRg7ZwkDktitGDtnCVuBFHjwIIBulhv-YAIjUBgiTytv-HP2T8AxN-t56LtZ&_nc_ohc=DRefQCtay9AAX--c_e0&_nc_zt=23&_nc_ht=scontent.fdac139-1.fna&oh=00_AfCZ9_5Ais6_MiqqovJogUeg50wPhn1u588S_HDJ2b5Gdg&oe=63C2150D');
             }
+
             30% {
 
                 background-image: linear-gradient(110deg, rgba(146, 199, 202, 0.719) 50%,
@@ -110,23 +106,26 @@
 
 
         @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Cinzel:wght@600&family=Courgette&family=Philosopher&display=swap');
-        .centercompany:hover{
+
+        .centercompany:hover {
 
             background-color: #0b0000dc;
             border: solid rgb(20, 0, 0) 2vw;
             border-color: #fffafa44;
 
         }
-       .companylog:hover{
+
+        .companylog:hover {
 
             width: 9.5vw;
-            
+
             transition: 0.6s;
             transform: rotate(360deg);
 
         }
+
         .centercompany {
-          
+
             position: absolute;
             top: 50%;
             left: 40%;
@@ -137,14 +136,14 @@
 
 
         }
-        .companylog{
+
+        .companylog {
 
             width: 10vw;
 
-             border-radius: 100%;
-             
+            border-radius: 100%;
+
         }
-        
     </style>
 
 
@@ -173,11 +172,10 @@
         </div>
 
 
-        <div class="centercompany" >
+        <div class="centercompany">
 
-            <a  class="centercompanya" 
-             href="https://web.facebook.com/profile.php?id=100088887035720">
-                <img class="companylog" 
+            <a class="centercompanya" href="https://web.facebook.com/profile.php?id=100088887035720">
+                <img class="companylog"
                     src="https://scontent.fdac96-1.fna.fbcdn.net/v/t39.30808-1/320453052_1600518210407639_152345529803957124_n.jpg?stp=dst-jpg_p160x160&_nc_cat=104&ccb=1-7&_nc_sid=c6021c&_nc_eui2=AeGkAwSPRdsnZKuTxeQAb7D22aE1a2So-qzZoTVrZKj6rGWzIQGYf2U--Clew1rpI0k8scbFzFH5i5LFYvrzsnWI&_nc_ohc=RN7NpEkG4g8AX_QwItJ&_nc_ht=scontent.fdac96-1.fna&oh=00_AfDuadTefRN6jpSuQFltO-752mbj0RdyTPO0DreIHsFWKQ&oe=63F07594"
                     alt="">
             </a>
@@ -185,7 +183,7 @@
     </div>
 
 
-    
+
 
 
 
@@ -236,7 +234,7 @@
                                 the
                                 card's content.</p>
                             <a href="#" class="btn btn-primary   ">Views</a>
-                            
+
 
                         </div>
 
@@ -381,7 +379,72 @@
 
 
 
-
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-xl-10">
+            <div class="card shadow-0 border rounded-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                            <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/new/img(5).webp"
+                                    class="w-100" />
+                                <a href="#!">
+                                    <div class="hover-overlay">
+                                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6">
+                            <h5>Quant ruybi shirts</h5>
+                            <div class="d-flex flex-row">
+                                <div class="text-danger mb-1 me-2">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <span>145</span>
+                            </div>
+                            <div class="mt-1 mb-0 text-muted small">
+                                <span>100% cotton</span>
+                                <span class="text-primary"> • </span>
+                                <span>Light weight</span>
+                                <span class="text-primary"> • </span>
+                                <span>Best finish<br /></span>
+                            </div>
+                            <div class="mb-2 text-muted small">
+                                <span>Unique design</span>
+                                <span class="text-primary"> • </span>
+                                <span>For women</span>
+                                <span class="text-primary"> • </span>
+                                <span>Casual<br /></span>
+                            </div>
+                            <p class="text-truncate mb-4 mb-md-0">
+                                There are many variations of passages of Lorem Ipsum available, but the
+                                majority have suffered alteration in some form, by injected humour, or
+                                randomised words which don't look even slightly believable.
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                            <div class="d-flex flex-row align-items-center mb-1">
+                                <h4 class="mb-1 me-1">$17.99</h4>
+                                <span class="text-danger"><s>$25.99</s></span>
+                            </div>
+                            <h6 class="text-success">Free shipping</h6>
+                            <div class="d-flex flex-column mt-4">
+                                <button class="btn btn-primary btn-sm" type="button">Details</button>
+                                <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                                    Add to wishlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -772,4 +835,4 @@
         </div>
 
     </div>
-@endsection 
+@endsection

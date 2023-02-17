@@ -23,4 +23,10 @@ class cardordercontroller extends Controller
     {
         return view('user\parsials\orderpayment');
     }
+    public function addtocard()
+    {
+
+        
+        return 'hh';
+    }
 }

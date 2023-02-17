@@ -16,6 +16,9 @@
                         <a class="nav-link active" href="#">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{route('add.product')}}" class="nav-link active" href="#">Add Product</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Orders</a>
                     </li>
                     <li class="nav-item">

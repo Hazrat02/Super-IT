@@ -1,7 +1,7 @@
 {{-- admin --}}
 
 @if (Auth::user()->role == '1')
-    @include('user\parsials\home')
+    @include('user\parsials\deshbord')
 @else
     @if (Auth::user()->role == '0')
         @extends('layouts/app')
