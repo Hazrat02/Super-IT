@@ -4,10 +4,7 @@
     @include('user\parsials\deshbord')
 @else
     @if (Auth::user()->role == '0')
-        @extends('layouts/app')
-        @section('mainaria')
-            @include('admin.home')
-        @endsection
+        @include('admin\deshbord')
     @else
         @include('user\parsials\deshbord')
 

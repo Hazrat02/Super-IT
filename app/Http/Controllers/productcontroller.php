@@ -30,7 +30,7 @@ class productcontroller extends Controller{
 
 public function addproduct()
 {
-    return 'hh';
+    return view('product\addproduct');
 }
 
 
