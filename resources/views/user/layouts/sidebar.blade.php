@@ -1,5 +1,23 @@
 <div class="offcanvas offcanvas-end text-bg-white searchhide" tabindex="-1" id="offcanvasDarkNavbar"
     aria-labelledby="offcanvasDarkNavbarLabel">
+    <style>
+
+    </style>
+    <div>
+
+        <!-----------------search-bar-------------
+          /
+          /
+          /
+          /            search-bar
+          /
+          /
+          /
+          /
+          /
+       /---------------_--------------------------->
+
+       
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
         <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>

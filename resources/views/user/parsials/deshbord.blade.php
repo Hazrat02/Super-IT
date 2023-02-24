@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="tab-pane mb-4" id="account-orders">
+<div  class="tab-pane mb-4" id="account-orders">
     <div class="icon-box icon-box-side icon-box-light">
         <span class="icon-box-icon icon-orders">
             <i class="w-icon-orders"></i>
@@ -117,7 +117,7 @@
                         <tbody>
                             <tr>
                                 <th>Name:</th>
-                                <td>John Doe</td>
+                                <td>{{auth()->user()->name}}</td>
                             </tr>
                             <tr>
                                 <th>Company:</th>
@@ -146,7 +146,7 @@
                         </tbody>
                     </table>
                 </address>
-                <a href="#"
+                <a href=""
                     class="btn btn-link btn-underline btn-icon-right text-primary">Edit
                     your billing address<i class="w-icon-long-arrow-right"></i></a>
             </div>
@@ -160,7 +160,7 @@
                         <tbody>
                             <tr>
                                 <th>Name:</th>
-                                <td>John Doe</td>
+                                <td>{{auth()->user()->name}}</td>
                             </tr>
                             <tr>
                                 <th>Company:</th>
@@ -207,8 +207,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="firstname">First name *</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="John"
+                    <label for="firstname">Name *</label>
+                    <input type="text" id="firstname" name="name" value="{{auth()->user()->name}}"
                         class="form-control form-control-md">
                 </div>
             </div>
@@ -231,7 +231,7 @@
 
         <div class="form-group mb-6">
             <label for="email_1">Email address *</label>
-            <input type="email" id="email_1" name="email_1"
+            <input type="email" id="email_1" name="email" value="{{auth()->user()->email}}"
                 class="form-control form-control-md">
         </div>
 
@@ -257,4 +257,5 @@
             Changes</button>
     </form>
 </div>
+
 @endsection

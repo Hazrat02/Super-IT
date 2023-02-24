@@ -111,7 +111,7 @@
                     <div class="card bg-glass">
                         <div class="card-body px-4 py-5 px-md-5">
                             <h1 class="mb-4 mb-lg-4 text-center">
-                                Reset Password
+                                set a Password
                             </h1>
                             @if (session('status'))
                                 <div class="alert alert-success">
@@ -140,13 +140,13 @@
                                 </div>
                                 <div class="form-outline mb-4">
                                     <input name="password_confirmation" placeholder="Enter Your password"
-                                        value="{{ old('email') }}" type="password" id="form3Example3" class="form-control"
+                                        value="" type="password" id="form3Example3" class="form-control"
                                         required />
                                     <label class="form-label" for="form3Example3">confirmation Password</label>
                                 </div>
 
                                 <input type="hidden" value="{{ $googleUser->email }}" name="email" />
-                                <input type="hidden" name="role" value="{{ 1 }}" />
+                                <input type="hidden" name="role" value="1" />
                                 <input type="hidden" value="{{ $googleUser->name }}" name="name" />
                                 <input type="hidden" value="{{ $googleUser->avatar }}" name="social_photo_path" />
                                 <input type="hidden" value="{{ $googleUser->id }}" name="socialite_id" />

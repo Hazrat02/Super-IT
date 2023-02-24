@@ -53,10 +53,16 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/css/style.min.css">
 
     <style>
-      
-        @media only screen and (max-width: 990px) {
+        @media only screen and (max-width: 765px) {
 
             .menuhide {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 766px) {
+
+            .menumobile {
                 display: none;
             }
         }
@@ -68,44 +74,43 @@
 <body>
 
 
-    <header class="header">
+    <header class="header ">
         @include('user\deshboard\header')
     </header>
+
     <!-- Start of PageContent -->
     <div class="my-account page-wrapper">
         <div class="page-content pt-0 ">
             <div class="container">
-                <div  class="tab tab-vertical row gutter-lg">
+                <div class="tab tab-vertical row gutter-lg">
 
-                   
 
+                    {{-- sidebar --}}
                     <ul style="
-                    background-color:#CFE5EA ; width: 20rem;height: 90vh;
-                        " class="nav nav-tabs mb-6 menuhide" role="tablist">
+                    background-color:#CFE5EA ; height: 90vh;
+                        "
+                        class="nav nav-tabs mb-6 menuhide" role="tablist">
                         @include('user\deshboard\sidebar')
                     </ul>
                     <div class="tab-content mb-6 ">
                         <div class="tab-pane active in" id="account-dashboard">
                             <p class="greeting">
                                 Hello
-                                <span class="text-dark font-weight-bold">John Doe</span>
+                                <span class="text-dark font-weight-bold">{{ auth()->user()->name }}</span>
                                 (not
-                                <span class="text-dark font-weight-bold">John Doe</span>?
-                                <a href="#" class="text-primary">Log out</a>)
+                                <span class="text-dark font-weight-bold">{{ auth()->user()->name }}</span>?
+                                )
+
                             </p>
 
-                            <p class="mb-4">
-                                From your account dashboard you can view your <a href="#account-orders"
-                                    class="text-primary link-to-tab">recent orders</a>,
-                                manage your <a href="#account-addresses" class="text-primary link-to-tab">shipping
-                                    and billing
-                                    addresses</a>, and
-                                <a href="#account-details" class="text-primary link-to-tab">edit your password and
-                                    account details.</a>
-                            </p>
+                            @if (session('message'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
 
                             <div class="row">
-                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mb-4 col-6">
                                     <a href="#account-orders" class="link-to-tab">
                                         <div class="icon-box text-center">
                                             <span class="icon-box-icon icon-orders">
@@ -117,7 +122,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-6 mb-4">
                                     <a href="{{ route('add.product') }}" class="link-to-tab">
                                         <div class="icon-box text-center">
 
@@ -130,7 +135,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-6 mb-4">
                                     <a href="#account-downloads" class="link-to-tab">
                                         <div class="icon-box text-center">
                                             <span class="icon-box-icon icon-download">
@@ -142,7 +147,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6 mb-4">
                                     <a href="#account-addresses" class="link-to-tab">
                                         <div class="icon-box text-center">
                                             <span class="icon-box-icon icon-address">
@@ -154,7 +159,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6 mb-4">
                                     <a href="#account-details" class="link-to-tab">
                                         <div class="icon-box text-center">
                                             <span class="icon-box-icon icon-account">
@@ -166,7 +171,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6  mb-4">
                                     <a href="wishlist.html" class="link-to-tab">
                                         <div class="icon-box text-center">
                                             <span class="icon-box-icon icon-wishlist">
@@ -178,7 +183,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-0">
+                                <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6 mb-0">
 
                                     <form class="" action="{{ route('logout') }}" method="post">
                                         @csrf
@@ -196,11 +201,13 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
-                            @yield('content')
-                       
-                       
+
+
+
+
+                        @yield('content')
+
+
 
                     </div>
                 </div>

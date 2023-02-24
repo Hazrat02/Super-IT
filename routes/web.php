@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\sociallog;
-
+use App\Http\Controllers\productcontroller;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
  
@@ -20,9 +20,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 // Route::get('/user', [admincontroller::class, 'userdata'])->name('User.Manage');
 
-Route::get('/', function () {
-    return view('user.parsials.home');
-})->name('home');
+Route::get('/',[productcontroller::class,'getproduct']
+)->name('home');
 
 Route::middleware([
     'auth:sanctum',

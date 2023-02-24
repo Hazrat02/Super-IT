@@ -202,179 +202,30 @@
 
     </div>
 
-    <div style="background-color: #D0E5EC ; box-shadow: 0px 0px 8px 1px #888888;" class="card px-3  m-3">
+
+    
 
 
-        <div class="container-fluid d-flex gap-3   col-12 overflow-auto">
-
-            <div class="text-center  col-6  col-sm-6 col-lg-2 col-md-4">
-                <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
-                    <a href=""><img style=" height: 15rem;"
-                            src="https://5.imimg.com/data5/BG/UM/MY-23375112/61-500x500.jpg" class="card-img-top"
-                            alt="..."></a>
-
-                    <div class="justify-content-between text-center v mb-2">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="product-price text-center">
-                            <strike style="font-size: 16px!important;color: #ff0000!important;">
-                                3$
-                            </strike><br>
-                            <strong class="">
-                                100$
-                            </strong>
-                        </div>
-                    </div>
 
 
-                    <div class="card-body quick-view single-product-details mb-0 rounded ">
-                        <h5 class="card-title">Card title</h5>
-                        <div class=" card-text">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary   ">Views</a>
 
 
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="text-center  col-6  col-sm-6 col-lg-2 col-md-4">
-                <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
-                    <a href=""><img style=" height: 15rem;"
-                            src="https://5.imimg.com/data5/BG/UM/MY-23375112/61-500x500.jpg" class="card-img-top"
-                            alt="..."></a>
-
-                    <div class="justify-content-between text-center v mb-2">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="product-price text-center">
-                            <strike style="font-size: 16px!important;color: #ff0000!important;">
-                                3$
-                            </strike><br>
-                            <strong class="">
-                                100$
-                            </strong>
-                        </div>
-                    </div>
 
 
-                    <div class="card-body quick-view single-product-details mb-0 rounded ">
-                        <h5 class="card-title">Card title</h5>
-                        <div class=" card-text">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary   ">Views</a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="text-center  col-6  col-sm-6 col-lg-2 col-md-4">
-                <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
-                    <a href=""><img style=" height: 15rem;"
-                            src="https://5.imimg.com/data5/BG/UM/MY-23375112/61-500x500.jpg" class="card-img-top"
-                            alt="..."></a>
-
-                    <div class="justify-content-between text-center v mb-2">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="product-price text-center">
-                            <strike style="font-size: 16px!important;color: #ff0000!important;">
-                                3$
-                            </strike><br>
-                            <strong class="">
-                                100$
-                            </strong>
-                        </div>
-                    </div>
 
 
-                    <div class="card-body quick-view single-product-details mb-0 rounded ">
-                        <h5 class="card-title">Card title</h5>
-                        <div class=" card-text">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary   ">Views</a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="text-center  col-6  col-sm-6 col-lg-2 col-md-4">
-                <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
-                    <a href=""><img style=" height: 15rem;"
-                            src="https://5.imimg.com/data5/BG/UM/MY-23375112/61-500x500.jpg" class="card-img-top"
-                            alt="..."></a>
-
-                    <div class="justify-content-between text-center v mb-2">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="product-price text-center">
-                            <strike style="font-size: 16px!important;color: #ff0000!important;">
-                                3$
-                            </strike><br>
-                            <strong class="">
-                                100$
-                            </strong>
-                        </div>
-                    </div>
 
 
-                    <div class="card-body quick-view single-product-details mb-0 rounded ">
-                        <h5 class="card-title">Card title</h5>
-                        <div class=" card-text">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary   ">Views</a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="text-center  col-6  col-sm-6 col-lg-2 col-md-4">
-                <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
-                    <a href=""><img style=" height: 15rem;"
-                            src="https://5.imimg.com/data5/BG/UM/MY-23375112/61-500x500.jpg" class="card-img-top"
-                            alt="..."></a>
-
-                    <div class="justify-content-between text-center v mb-2">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="product-price text-center">
-                            <strike style="font-size: 16px!important;color: #ff0000!important;">
-                                3$
-                            </strike><br>
-                            <strong class="">
-                                100$
-                            </strong>
-                        </div>
-                    </div>
 
 
-                    <div class="card-body quick-view single-product-details mb-0 rounded ">
-                        <h5 class="card-title">Card title</h5>
-                        <div class=" card-text">
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of
-                                the
-                                card's content.</p>
-                            <a href="#" class="btn btn-primary   ">Views</a>
 
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
+
+
+    
 
 
 
@@ -383,6 +234,12 @@
 
 
     <div class="container-fluid row  justify-content-between col-12 overflow-auto">
+        
+        
+        
+        @foreach ($product as $item)
+            
+        
         <div class="text-center col-12 col-sm-6 col-lg-3 col-md-4  mb-3">
             <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
                 <a href=""><img style=" height: 15rem;"
@@ -390,20 +247,20 @@
                         alt="..."></a>
 
                 <div class="justify-content-between text-center v mb-2">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">{{$item->product_name}}</h5>
                     <div class="product-price text-center">
                         <strike style="font-size: 12px!important;color: #E96A6A!important;">
-                            3$
+                            {{$item->discount}}
                         </strike><br>
                         <strong class="">
-                            100$
+                            {{$item->price}}
                         </strong>
                     </div>
                 </div>
 
 
                 <div class="card-body quick-view single-product-details rounded">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">{{$item->title}}</h5>
                     <div class=" card-text">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
@@ -415,6 +272,14 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+        @endforeach
         <div class="text-center col-12 col-sm-6 col-lg-3 col-md-4  mb-3">
             <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
                 <a href=""><img style=" height: 15rem;"
@@ -769,4 +634,6 @@
         </div>
 
     </div>
+
+
 @endsection

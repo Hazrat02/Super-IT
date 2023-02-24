@@ -107,8 +107,8 @@
 
                                 <div class="form-outline mb-2">
                                     <input name="name" placeholder="Enter Your Name" value="{{ old('name') }}"
-                                        type="text" id="form3Example3" class="form-control" required />
-                                    <label class="form-label" for="form3Example3">Full Name</label>
+                                        type="text" id="name" class="form-control" required />
+                                    <label class="form-label" for="name">Full Name</label>
                                 </div>
                                 <div class="form-outline mb-2">
                                     <input name="email" placeholder="Enter Your Email" value="{{ old('email') }}"
@@ -119,11 +119,11 @@
                                 <!-- Password input -->
                                 {{-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" --}}
                                 <div class="form-outline mb-2">
-                                    <input name="password" placeholder="******" type="password" id="form3Example4"
+                                    <input name="password" placeholder="******" type="password" id="password"
                                         class="form-control @error('password') is-invalid @enderror" required />
 
                                     <div class=" d-flex  " style="justify-content: space-between">
-                                        <label class="form-label " for="form3Example4">password</label>
+                                        <label class="form-label " for="password">password</label>
 
                                     </div>
 
@@ -133,11 +133,12 @@
                                 </div>
                                 <div class="form-outline mb-2">
                                     <input name="password_confirmation" placeholder="******" type="password"
-                                        id="form3Example4" class="form-control @error('password') is-invalid @enderror"
+                                        id="password_confirmation" class="form-control 
+                                        @error('password') is-invalid @enderror"
                                         required />
 
                                     <div class=" d-flex">
-                                        <label class="form-label " for="form3Example4">Retype password</label>
+                                        <label class="form-label " for="password_confirmation">Retype password</label>
 
                                     </div>
                                 </div>

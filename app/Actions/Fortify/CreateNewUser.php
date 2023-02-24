@@ -34,6 +34,7 @@ class CreateNewUser implements CreatesNewUsers
         }else{
             
         $file = $input['profile_photo_path'];
+        
         // $extension = $file->getClientOriginalExtension();
         $name =rand(0000000,999999) .$file->getClientOriginalName();
         

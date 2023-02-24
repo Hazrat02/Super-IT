@@ -16,10 +16,22 @@ use Illuminate\Container\Container;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\CustomClasses\ColectionPaginate;
 use App\Http\Middleware\admin;
+use App\Models\product;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\AppServiceProvider;
+
+use BaconQrCode\Renderer\Path\Move;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
+use Illuminate\Http\UploadedFile;
+
+use function Termwind\render;
  
 
 
@@ -30,14 +42,45 @@ class productcontroller extends Controller{
 
 public function addproduct()
 {
-    return view('product\addproduct');
+    return view('user\deshboard\addproduct');
+}
+public function createproduct(Request $request)
+{
+    // dd($request->photo);
+
+    $file = $request->photo;
+        // $extension = $file->getClientOriginalExtension();
+        $name =rand(0000000,999999) .$file->getClientOriginalName();
+        
+        $save = $file->storeAs('public/product',$name);
+    product::create([
+        'product_name'=>$request->product_name,
+        'price'=>$request->price,
+        'user_id'=>$request->user_id,
+        'category'=>$request->category,
+        'title'=>$request->title,
+        'discount'=>$request->discount,
+        'delivery_fee'=>$request->delivery_fee,
+        'discription'=>$request->discription,
+        'photo'=>$name,
+        
+    ]);
+
+    return redirect(route('dashboard'))->withMessage('product added done');
 }
 
 
 
 
 
-
+public function getproduct()
+{
+    $product = product::paginate('3');
+        $page = 'home';
+        // // dd($product);
+        // return $product;
+        return view('home', compact('product','page'));
+}
 
 
 
