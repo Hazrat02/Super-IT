@@ -91,9 +91,9 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="file" required id="form3Example1n1" name="photo"
+                                                <input type="file" required multiple id="form3Example1n1" name="image[]"
                                                     class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Example1n1">Photo</label>
+                                                <label class="form-label" for="form3Example1n1">Photo (select multiple) </label>
                                             </div>
                                         </div>
                                     </div>

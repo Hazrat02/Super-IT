@@ -32,63 +32,68 @@ use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Http\UploadedFile;
 
 use function Termwind\render;
- 
 
-
-
-class productcontroller extends Controller{
-
-
-
-public function addproduct()
+class productcontroller extends Controller
 {
-    return view('user\deshboard\addproduct');
-}
-public function createproduct(Request $request)
-{
-    // dd($request->photo);
+    public function addproduct()
+    {
+        return view('user\deshboard\addproduct');
+    }
+    public function createproduct(Request $request)
+    {
+       
 
-    $file = $request->photo;
-        // $extension = $file->getClientOriginalExtension();
-        $name =rand(0000000,999999) .$file->getClientOriginalName();
+        $image = [];
+
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+               
+            $name =rand(0000000,999999) .$file->getClientOriginalName();
+             $save = $file->storeAs('public/product',$name);
+             $image[]= $name;
+            }
+        }
+
+       product::create([
+            'product_name'=>$request->product_name,
+            'price'=>$request->price,
+            'user_id'=>$request->user_id,
+            'category'=>$request->category,
+            'title'=>$request->title,
+            'discount'=>$request->discount,
+            'delivery_fee'=>$request->delivery_fee,
+            'discription'=>$request->discription,
+            'photo'=>implode('|',$image),
+
+        ]);
         
-        $save = $file->storeAs('public/product',$name);
-    product::create([
-        'product_name'=>$request->product_name,
-        'price'=>$request->price,
-        'user_id'=>$request->user_id,
-        'category'=>$request->category,
-        'title'=>$request->title,
-        'discount'=>$request->discount,
-        'delivery_fee'=>$request->delivery_fee,
-        'discription'=>$request->discription,
-        'photo'=>$name,
-        
-    ]);
+        return redirect(route('dashboard'))->withMessage('product added done');
+    }
 
-    return redirect(route('dashboard'))->withMessage('product added done');
-}
-
-
-
-
-
-public function getproduct()
-{
-    $product = product::paginate('30');
+    public function getproduct()
+    {
+        $product = product::paginate('30');
         $page = 'home';
-        // // dd($product);
+
+            // dd($product);
         // return $product;
-        return view('home', compact('product','page'));
-}
+        return view('home', compact('product', 'page'));
+    }
 
+    public function viewsproduct(Request $id)
+    {
+        $product = product::find($id);
+        $productaray = product::find($id)->first();
 
-public function viewsproduct(Request  $id )
-{
-    
-    $product= product::find($id);
-    return view('productDetails',compact('product'));
+        
+        $relative=product::where('category',$productaray->category)->orderBy('id','DESC')->get();
 
-}
-
+        // $imgs=explode('|',$relative->photo);
+        // dd($imgs);
+        // foreach ($imgs as $img) {
+        //     return $img;
+        // }
+        
+        return view('productDetails', compact('product','relative'));
+    }
 }
