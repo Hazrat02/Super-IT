@@ -75,7 +75,7 @@ public function createproduct(Request $request)
 
 public function getproduct()
 {
-    $product = product::paginate('3');
+    $product = product::paginate('30');
         $page = 'home';
         // // dd($product);
         // return $product;
@@ -83,6 +83,12 @@ public function getproduct()
 }
 
 
+public function viewsproduct(Request  $id )
+{
+    
+    $product= product::find($id);
+    return view('productDetails',compact('product'));
 
+}
 
 }
