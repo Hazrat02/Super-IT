@@ -84,9 +84,17 @@ class productcontroller extends Controller
     {
         $product = product::find($id);
         $productaray = product::find($id)->first();
+        $vandorID= $productaray->user_id;
+        $vandorProduct = product::where("user_id",$vandorID)->take(5)->orderBy("id",'DESC')->get();
 
-        
+      
         $relative=product::where('category',$productaray->category)->orderBy('id','DESC')->get();
+        
+
+
+
+
+
 
         // $imgs=explode('|',$relative->photo);
         // dd($imgs);
@@ -94,6 +102,6 @@ class productcontroller extends Controller
         //     return $img;
         // }
         
-        return view('productDetails', compact('product','relative'));
+        return view('productDetails', compact('product','relative','vandorProduct'));
     }
 }

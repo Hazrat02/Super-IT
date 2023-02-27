@@ -238,13 +238,25 @@
         
         
         @foreach ($product as $item)
+        @if (strpos($item->photo, '|') !== false)
+        @php
+            $photo = Str::afterLast($item->photo, '|');
             
+        @endphp
+    @else
+        @php
+            $photo = $item->photo;
+            
+        @endphp
+    @endif
         
         <div class="text-center col-12 col-sm-6 col-lg-3 col-md-4  mb-3">
             <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
                 <a href=""><img style=" height: 15rem;"
-                        src="{{ asset('storage\product') }}\{{$item->photo}}" class="card-img-top"
+                        src="{{ asset('storage\product') }}\{{$photo}}" class="card-img-top"
                         alt="..."></a>
+
+
 
                 <div class="justify-content-between text-center v mb-2">
                     <h5 class="card-title">{{$item->product_name}}</h5>
