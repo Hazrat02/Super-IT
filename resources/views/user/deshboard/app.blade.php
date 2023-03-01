@@ -30,7 +30,7 @@
         })(document);
     </script>
 
-    
+
     <!-- Bootstrap CSS v5.2.1 -->
 
     <link rel="preload" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2"
@@ -70,24 +70,28 @@
 
 
 
-    
-    <link rel="preload" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
-            crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('userstyle') }}/assets/fonts/wolmart87d5.woff?png09e" as="font" type="font/woff" crossorigin="anonymous">
+
+    <link rel="preload" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2"
+        as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2"
+        as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2"
+        as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('userstyle') }}/assets/fonts/wolmart87d5.woff?png09e" as="font"
+        type="font/woff" crossorigin="anonymous">
 
     <!-- Vendor CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('userstyle') }}/assets/vendor/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/vendor/animate/animate.min.css">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/vendor/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('userstyle') }}/assets/vendor/magnific-popup/magnific-popup.min.css">
     <link rel="stylesheet" href="{{ asset('userstyle') }}/assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/vendor/photoswipe/photoswipe.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/vendor/photoswipe/default-skin/default-skin.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('userstyle') }}/assets/vendor/photoswipe/default-skin/default-skin.min.css">
     <!-- Swiper's CSS -->
     <link rel="stylesheet" href="{{ asset('userstyle') }}/assets/vendor/swiper/swiper-bundle.min.css">
 
@@ -118,16 +122,28 @@
     <header class="header ">
         @include('user\deshboard\header')
     </header>
+    @if (session('message'))
+        <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
+            class="alert alert-success" role="alert">
+            {{ session('message') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
+            class="alert alert-dark" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif
 
 
     @yield('maincontent')
 
-    
+
 
     <!-- Start of PageContent -->
 
- 
-  
+
+
 
     <!-- Plugin JS File -->
     <script src="{{ asset('userstyle') }}/assets/vendor/jquery/jquery.min.js"></script>
@@ -140,7 +156,7 @@
     <script src="{{ asset('userstyle') }}/assets/vendor/sticky/sticky.js"></script>
     <script src="{{ asset('userstyle') }}/assets/vendor/jquery.plugin/jquery.plugin.min.js"></script>
     <script src="{{ asset('userstyle') }}/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
- 
+
     <script src="{{ asset('userstyle') }}/assets/vendor/zoom/jquery.zoom.js"></script>
     <script src="{{ asset('userstyle') }}/assets/vendor/photoswipe/photoswipe.js"></script>
     <script src="{{ asset('userstyle') }}/assets/vendor/photoswipe/photoswipe-ui-default.js"></script>

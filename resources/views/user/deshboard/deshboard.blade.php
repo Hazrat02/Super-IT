@@ -27,12 +27,7 @@
 
                         </p>
 
-                        @if (session('message'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('message') }}
-                            </div>
-                        @endif
-
+                      
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mb-4 col-6">
                                 <a href="#account-orders" class="link-to-tab">

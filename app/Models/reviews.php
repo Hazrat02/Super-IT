@@ -13,23 +13,19 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class product extends Model
+class reviews extends Model
 {
-   
     use HasFactory;
+
     protected $fillable = [
         
-        'product_name',
-        'price',
+        'product_id',
+        'email',
         'user_id',
-        'category',
-        'title',
-        'discount',
-        'discription',
-        'delivery_fee',
-        'photo',
-        'views',
-        'created_at',
+        'name',
+        'comment',
+        'reting',
+    
         
     ];
 }

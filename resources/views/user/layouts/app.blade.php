@@ -10,7 +10,8 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
         integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('admin') }}/plugins/fontawesome-free/css/all.min.css">
@@ -69,10 +70,21 @@
 <body>
 
 
-
-    <header style="position: sticky;top: 0px; z-index: 44444;">
-        <!-- place navbar here -->
-        @include('user.layouts.header')
+    @if (session('message'))
+    <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
+        class="alert alert-success" role="alert">
+        {{ session('message') }}
+    </div>
+@endif
+@if (session('error'))
+    <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
+        class="alert alert-dark" role="alert">
+        {{ session('error') }}
+    </div> @endif
+    <header style="position:
+        sticky;top: 0px; z-index: 44444;">
+    <!-- place navbar here -->
+    @include('user.layouts.header')
     </header>
 
 
@@ -110,11 +122,11 @@
 
 
     <!-- Theme JS -->
-        <!-- Vendor JS -->
-        <script src="{{ asset('user/dist/') }}assets/js/vendor.bundle.js"></script>
+    <!-- Vendor JS -->
+    <script src="{{ asset('user/dist/') }}assets/js/vendor.bundle.js"></script>
 
-        <!-- Theme JS -->
-        <script src="{{ asset('user/dist/') }}/assets/js/theme.bundle.js"></script>
-</body>
+    <!-- Theme JS -->
+    <script src="{{ asset('user/dist/') }}/assets/js/theme.bundle.js"></script>
+    </body>
 
 </html>

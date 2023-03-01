@@ -42,6 +42,18 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+    @if (session('message'))
+        <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
+            class="alert alert-success" role="alert">
+            {{ session('message') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
+            class="alert alert-dark" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="wrapper">
 
         <!-- Preloader -->

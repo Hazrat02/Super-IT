@@ -7,7 +7,11 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Routing\Controller;
+// model
+
 use App\Models\User;
+use App\Models\product;
+use App\Models\reviews;
 use App\Models\money;
 use App\Models\User as ModelsUser;
 use Illuminate\Http\Request;
@@ -16,7 +20,7 @@ use Illuminate\Container\Container;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\CustomClasses\ColectionPaginate;
 use App\Http\Middleware\admin;
-use App\Models\product;
+
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -41,32 +45,28 @@ class productcontroller extends Controller
     }
     public function createproduct(Request $request)
     {
-       
-
         $image = [];
 
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
-               
-            $name =rand(0000000,999999) .$file->getClientOriginalName();
-             $save = $file->storeAs('public/product',$name);
-             $image[]= $name;
+                $name = rand(0000000, 999999) . $file->getClientOriginalName();
+                $save = $file->storeAs('public/product', $name);
+                $image[] = $name;
             }
         }
 
-       product::create([
-            'product_name'=>$request->product_name,
-            'price'=>$request->price,
-            'user_id'=>$request->user_id,
-            'category'=>$request->category,
-            'title'=>$request->title,
-            'discount'=>$request->discount,
-            'delivery_fee'=>$request->delivery_fee,
-            'discription'=>$request->discription,
-            'photo'=>implode('|',$image),
-
+        product::create([
+            'product_name' => $request->product_name,
+            'price' => $request->price,
+            'user_id' => $request->user_id,
+            'category' => $request->category,
+            'title' => $request->title,
+            'discount' => $request->discount,
+            'delivery_fee' => $request->delivery_fee,
+            'discription' => $request->discription,
+            'photo' => implode('|', $image),
         ]);
-        
+
         return redirect(route('dashboard'))->withMessage('product added done');
     }
 
@@ -75,33 +75,59 @@ class productcontroller extends Controller
         $product = product::paginate('30');
         $page = 'home';
 
-            // dd($product);
+        // dd($product);
         // return $product;
         return view('home', compact('product', 'page'));
     }
 
-    public function viewsproduct(Request $id)
+    public function viewsproduct(Request $id )
     {
+       
         $product = product::find($id);
-        $productaray = product::find($id)->first();
-        $vandorID= $productaray->user_id;
-        $vandorProduct = product::where("user_id",$vandorID)->take(5)->orderBy("id",'DESC')->get();
+        $productaray = product::find($id->id)->first();
+        $vandorID = $productaray->user_id;
+        $vandorProduct = product::where('user_id', $vandorID)
+            ->take(5)
+            ->orderBy('id', 'DESC')
+            ->get();
 
+        $relative = product::where('category', $productaray->category)
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        $vendor = User::where('id', $vandorID)->get();
+
+        $oldviews = $productaray->views;
+
+        $productaray
+            ->forceFill([
+                'views' => $oldviews + '1',
+            ])
+            ->save();
+
+        $reviews=reviews::get()->where('product_id',$id->id);
+    
+        return view('productDetails', compact('product', 'relative', 'vandorProduct', 'vendor','reviews'));
+    }
+
+
+
+
+    public function makereviews(Request $request)
+    {
+
+       
+        reviews::create([
+         
+            'product_id' => $request->product_id,
+            'user_id' => $request->user_id,
+            'reting' => $request->rating,
+            'comment' => $request->comment,
+            'name' => $request->name,
+            'email' => $request->email,
       
-        $relative=product::where('category',$productaray->category)->orderBy('id','DESC')->get();
-        
+        ]);
 
-
-
-
-
-
-        // $imgs=explode('|',$relative->photo);
-        // dd($imgs);
-        // foreach ($imgs as $img) {
-        //     return $img;
-        // }
-        
-        return view('productDetails', compact('product','relative','vandorProduct'));
+        return redirect()->back()->withMessage('Your reviews succesfully add! ');
     }
 }
