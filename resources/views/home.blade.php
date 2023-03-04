@@ -287,15 +287,18 @@
 
                 </div>
             </div>
+           
         </div>
 
 
 
 
 
-
+        
 
         @endforeach
+        <div class="item-center"> 
+           {{ $product->links() }}</div>
         <div class="text-center col-12 col-sm-6 col-lg-3 col-md-4  mb-3">
             <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
                 <a href=""><img style=" height: 15rem;"

@@ -1,47 +1,24 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+
 use Illuminate\Routing\Controller;
-// model
 
 use App\Models\User;
 use App\Models\product;
 use App\Models\reviews;
-use App\Models\money;
-use App\Models\User as ModelsUser;
+
 use Illuminate\Http\Request;
-
-use Illuminate\Container\Container;
-use Illuminate\Pagination\LengthAwarePaginator;
-use App\CustomClasses\ColectionPaginate;
-use App\Http\Middleware\admin;
-
-use Illuminate\Support\Collection;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\AppServiceProvider;
-
-use BaconQrCode\Renderer\Path\Move;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Laravel\Fortify\Contracts\CreatesNewUsers;
-use Laravel\Jetstream\Jetstream;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
-use Illuminate\Http\UploadedFile;
-
-use function Termwind\render;
 
 class productcontroller extends Controller
 {
     public function addproduct()
     {
-        return view('user\deshboard\addproduct');
+        return View('user\deshboard\addproduct');
     }
     public function createproduct(Request $request)
     {
@@ -72,7 +49,7 @@ class productcontroller extends Controller
 
     public function getproduct()
     {
-        $product = product::paginate('30');
+        $product = product::paginate('8');
         $page = 'home';
 
         // dd($product);
@@ -80,54 +57,54 @@ class productcontroller extends Controller
         return view('home', compact('product', 'page'));
     }
 
-    public function viewsproduct(Request $id )
+    public function viewsproduct(Request $request)
     {
-       
-        $product = product::find($id);
-        $productaray = product::find($id->id)->first();
-        $vandorID = $productaray->user_id;
+        $id = $request->id;
+
+        $product = product::where('id', $id)
+            ->get()
+            ->first();
+
+        $vandorID = $product->user_id;
         $vandorProduct = product::where('user_id', $vandorID)
             ->take(5)
             ->orderBy('id', 'DESC')
             ->get();
 
-        $relative = product::where('category', $productaray->category)
-            ->orderBy('id', 'DESC')
-            ->get();
+        $relative = product::where('category', $product->category)
+            ->get()
+            ->all();
+
+        // dd($vandorID);
 
         $vendor = User::where('id', $vandorID)->get();
 
-        $oldviews = $productaray->views;
+        $oldviews = $product->views;
 
-        $productaray
-            ->forceFill([
-                'views' => $oldviews + '1',
-            ])
-            ->save();
+        $product->update([
+            'views' => $oldviews + '1',
+        ]);
 
-        $reviews=reviews::get()->where('product_id',$id->id);
-    
-        return view('productDetails', compact('product', 'relative', 'vandorProduct', 'vendor','reviews'));
+        $reviews = reviews::where('product_id', $id)
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        return view('productDetails', compact('product', 'relative', 'vandorProduct', 'vendor', 'reviews'));
     }
-
-
-
 
     public function makereviews(Request $request)
     {
-
-       
         reviews::create([
-         
             'product_id' => $request->product_id,
             'user_id' => $request->user_id,
             'reting' => $request->rating,
             'comment' => $request->comment,
             'name' => $request->name,
             'email' => $request->email,
-      
         ]);
 
-        return redirect()->back()->withMessage('Your reviews succesfully add! ');
+        return redirect()
+            ->back()
+            ->withMessage('Your reviews succesfully add! ');
     }
 }

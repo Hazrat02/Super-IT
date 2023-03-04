@@ -250,15 +250,15 @@ box-shadow: 0px 0px 8px 1px #888888;"
        /---------------_--------------------------->
         <div class="d-flex gap-5">
             <div>
-                <a style="color: black" href="{{ route('add.card') }}">
+                <a style="color: black" href="{{ route('card') }}">
 
 
 
                     <i style="width: 20px ;position: relative;" class="fas fa-shopping-cart"></i>
 
-                    <h4 style="position: absolute;top: 30% ; color: red">
-                        1
-                    </h4>
+                    <h3 style="position: absolute;top: 30% ; color: red">
+                        {{ $addtocard->count() }}
+                    </h3>
                 </a>
             </div>
             <div style="border: solid 2px rgb(13, 6, 6)" class="navbar-toggler" type="button"

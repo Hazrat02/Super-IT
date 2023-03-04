@@ -1,57 +1,69 @@
+<div class="cart-overlay"></div>
+<a href="#" class="cart-toggle label-down link">
+    <i class="w-icon-cart">
+        <span class="cart-count">{{ $addtocard->count() }}</span>
+    </i>
+    <span class="cart-label">Cart</span>
+</a>
+
 <div class="dropdown-box">
     <div class="products">
-        <div class="product product-cart">
-            <div class="product-detail">
-                <h3 class="product-name">
-                    <a href="product-default.html">Beige knitted elas<br>tic
-                        runner shoes</a>
-                </h3>
-                <div class="price-box">
-                    <span class="product-quantity">100</span>
-                    <span class="product-price">$25.68</span>
-                </div>
-            </div>
-            <figure class="product-media">
-                <a href="#">
-                    <img src="assets/images/cart/product-1.jpg" alt="product" height="84"
-                        width="94" />
-                </a>
-            </figure>
-            <button class="btn btn-link btn-close" aria-label="button">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+        @foreach ($addtocard->take(3) as $item)
+            <div class="product product-cart">
+                <div class="product-detail">
+                    <h3 class="product-name">
+                        <a href="product-default.html">{{ $item->product->product_name }}</a>
 
-        <div class="product product-cart">
-            <div class="product-detail">
-                <h3 class="product-name">
-                    <a href="https://www.portotheme.com/html/wolmart/product.html">Blue utility pina<br>fore
-                        denim dress</a>
-                </h3>
-                <div class="price-box">
-                    <span class="product-quantity">1</span>
-                    <span class="product-price">$32.99</span>
+                    </h3>
+
+
+
+
+                    <div class="price-box">
+                        <span class="product-quantity">{{ $item->quantity }}</span>
+                        <span class="product-price">{{ $item->product->price }}</span>
+
+                        <span class="ml-1">=</span>
+
+
+                        <span class="product-price">{{ $item->total_price }}</span>
+                    </div>
                 </div>
+                <figure class="product-media">
+                    <a href="#">
+                        @if (strpos($item->product->photo, '|') !== false)
+                            @php
+                                $photo = Str::afterLast($item->product->photo, '|');
+                                
+                            @endphp
+                        @else
+                            @php
+                                $photo = $item->product->photo;
+                                
+                            @endphp
+                        @endif
+                        <img src="{{ asset('storage\product') }}\{{$photo}}" alt="product" height="84" width="94" />
+                    </a>
+                </figure>
+                <form action="{{route('card.remove')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$item->id}}">
+                <button  type="submit" class="btn btn-link btn-close" aria-label="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </form>
             </div>
-            <figure class="product-media">
-                <a href="#">
-                    <img src="assets/images/cart/product-2.jpg" alt="product" width="84"
-                        height="94" />
-                </a>
-            </figure>
-            <button class="btn btn-link btn-close" aria-label="button">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+            
+        @endforeach
     </div>
 
     <div class="cart-total">
         <label>Subtotal:</label>
-        <span class="price">$58.67</span>
+        <span class="price">{{$addtocard->sum('total_price')}}</span>
     </div>
 
     <div class="cart-action">
-        <a href="cart.html" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
-        <a href="checkout.html" class="btn btn-primary  btn-rounded">Checkout</a>
+        <a href="{{route('card')}}" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+        <a href="{{route('checkout')}}" class="btn btn-primary  btn-rounded">Checkout</a>
     </div>
 </div>

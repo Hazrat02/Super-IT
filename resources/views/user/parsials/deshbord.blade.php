@@ -1,4 +1,4 @@
-@extends('user\deshboard\deshboard')
+@extends('user\deshboard\app2')
 @section('content')
 
 

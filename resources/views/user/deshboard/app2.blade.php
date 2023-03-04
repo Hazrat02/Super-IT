@@ -17,7 +17,7 @@
                     @include('user\deshboard\sidebar')
                 </ul>
                 <div class="tab-content mb-6 ">
-                    <div class="tab-pane active in" id="account-dashboard">
+                    {{-- <div class="tab-pane active in" id="account-dashboard">
                         <p class="greeting">
                             Hello
                             <span class="text-dark font-weight-bold">{{ auth()->user()->name }}</span>
@@ -119,7 +119,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     @yield('content')
 

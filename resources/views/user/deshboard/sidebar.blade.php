@@ -5,6 +5,9 @@
     <a href="#account-orders" class="nav-link">Orders</a>
 </li>
 <li class="link-item">
+    <a href="{{route('card')}}" class="link-link">Card</a>
+</li>
+<li class="link-item">
     <a href="{{ route('add.product') }}" class="link-link">Add Product</a>
 </li>
 <li class="nav-item">
