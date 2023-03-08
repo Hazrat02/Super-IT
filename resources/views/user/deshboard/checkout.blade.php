@@ -19,71 +19,82 @@
             <div class="container">
 
 
-                <form class="form checkout-form" action="#" method="post">
+                <form class="form checkout-form" action="{{url('/pay')}}" method="post">
+                    @csrf
                     <div class="row mb-2">
                         <div class="col-lg-7 pr-lg-4 mb-4">
                             <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">
-                                Billing Details
+                                siping Details
                             </h3>
                             <div class="row gutter-sm">
                                 <div class="col-xs-6">
                                     <div class="form-group">
-                                        <label>First name *</label>
-                                        <input type="text" class="form-control form-control-md" name="firstname"
+                                        <label>name *</label>
+                                        <input type="text" class="form-control form-control-md" name="customar_name"
                                             required>
                                     </div>
                                 </div>
-                                <div class="col-xs-6">
-                                    <div class="form-group">
-                                        <label>Last name *</label>
-                                        <input type="text" class="form-control form-control-md" name="lastname" required>
+                                <div class="form-group">
+                                    <label>Country / Region *</label>
+                                    <div class="select-box">
+                                        <select name="customar_country" class="form-control form-control-md">
+                                            <option value="default" selected="selected">United States
+                                                (US)
+                                            </option>
+                                            <option value="uk">United Kingdom (UK)</option>
+                                            <option value="us">United States</option>
+                                            <option value="fr">France</option>
+                                            <option value="aus">Australia</option>
+                                            <option value="bangladesh">Bangladesh</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label>Country / Region *</label>
-                                <div class="select-box">
-                                    <select name="country" class="form-control form-control-md">
-                                        <option value="default" selected="selected">United States
-                                            (US)
-                                        </option>
-                                        <option value="uk">United Kingdom (UK)</option>
-                                        <option value="us">United States</option>
-                                        <option value="fr">France</option>
-                                        <option value="aus">Australia</option>
-                                        <option value="bangladesh">Bangladesh</option>
-                                    </select>
-                                </div>
-                            </div>
+                           
                             <div class="form-group">
                                 <label>Street address *</label>
                                 <input type="text" placeholder="House number and street name"
-                                    class="form-control form-control-md mb-2" name="street-address-1" required>
+                                    class="form-control form-control-md mb-2" name="customar_streat" required>
 
                             </div>
                             <div class="row gutter-sm">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Town / City *</label>
-                                        <input type="text" class="form-control form-control-md" name="town" required>
+                                        <label>Distric / City *</label>
+                                        <input type="text" class="form-control form-control-md" name="customar_distric" required>
                                     </div>
                                     <div class="form-group">
                                         <label>ZIP *</label>
-                                        <input type="text" class="form-control form-control-md" name="zip" required>
+                                        <input type="number" class="form-control form-control-md" name="zip" required>
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
 
                                     <div class="form-group">
                                         <label>Phone *</label>
-                                        <input type="text" class="form-control form-control-md" name="phone" required>
+                                        <input type="number" class="form-control form-control-md" name="customar_number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>village *</label>
+                                        <input type="text" class="form-control form-control-md" name="customar_village" required>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Upozila *</label>
+                                    <input type="text" class="form-control form-control-md" name="customar_upozila" required>
+                                </div>
+                                {{-- <div class="form-group">
+                                    <label>ZIP *</label>
+                                    <input type="text" class="form-control form-control-md" name="zip" required>
+                                </div> --}}
+                            </div>
                             <div class="form-group mb-7">
                                 <label>Email address *</label>
-                                <input type="email" class="form-control form-control-md" name="email" required>
+                                <input type="email" class="form-control form-control-md" name="customar_email" required>
                             </div>
 
 
@@ -147,7 +158,7 @@
                                                                     alt="product" height="84" width="94" />
                                                             </a>
                                                         </figure>
-                                                        
+
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -203,7 +214,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                               
                                 <div class="form-group place-order pt-6">
                                     <button type="submit" class="btn btn-dark btn-block btn-rounded">Place Order</button>
                                 </div>
@@ -217,4 +228,5 @@
 
         <!-- End of PageContent -->
     </main>
+
 @endsection

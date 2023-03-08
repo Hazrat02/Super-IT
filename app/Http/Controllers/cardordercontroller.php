@@ -36,12 +36,12 @@ class cardordercontroller extends Controller
             ->first();
         $total_price = $product->price * $request->quantity;
 
-        $user_id = Auth::id();
+        $customar_id = Auth::id();
 
          addtocard::create([
             'product_id' => $request->product_id,
             'size' => $request->size,
-            'user_id' => $user_id,
+            'customar_id' => $customar_id,
             'quantity' => $request->quantity,
             'total_price' => $total_price,
         ]);

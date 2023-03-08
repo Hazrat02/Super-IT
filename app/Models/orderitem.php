@@ -14,24 +14,26 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
-class addtocard extends Model
+class orderitem extends Model
 {
    
     use HasFactory;
     protected $fillable = [
         
         'product_id',
-        'customar_id',
+        'customer_id',
         'size',
         'quantity',
-        'total_price',
+        'subtotal',
+        'order_id',
+        'vandor_id',
      
         
     ];
 
-    public function product(): HasOne
+    public function order(): HasOne
 {
-    return $this->hasOne(product::class,'id','product_id');
+    return $this->hasOne(order::class,'id','order_id');
 }
 
 }

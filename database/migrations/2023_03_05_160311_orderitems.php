@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('addtocards', function (Blueprint $table) {
+        
+        Schema::create('orderitems', function (Blueprint $table) {
             $table->id();
-          
-            $table->unsignedBigInteger('product_id');
-            $table->integer('customar_id');
-            $table->string('size')->nullable();
             $table->integer('quantity')->default(1);
-            $table->string('total_price');
+            $table->Integer('order_id');
+            $table->integer('product_id');
+            $table->integer('vandor_id');
+            $table->unsignedBigInteger('customer_id');
+            $table->string('size')->nullable();
+            $table->integer('subtotal');
            $table->timestamps();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
            
         });
     }
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_id');
+        Schema::dropIfExists('customer_id');
     }
 };

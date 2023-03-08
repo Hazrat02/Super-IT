@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         //     View::share('addtocard', $d);
 
         View::composer('*', function ($view) {
-            $data = addtocard::where('user_id', Auth::id())
+            $data = addtocard::where('customar_id', Auth::id())
                 ->with('product')
                 ->get();
                 View::share('addtocard', $data);
