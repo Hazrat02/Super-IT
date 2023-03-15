@@ -123,7 +123,7 @@ box-shadow: 0px 0px 8px 1px #888888;"
                             <p>{{ Auth::user()->email }}</p>
 
                             <div class="d-grid gap-2 col-6 mx-auto mb-5">
-                                <a href="{{ route('login') }}" class="btn btn-outline-success  btn-group-lg"> Profile</a>
+                                <a href="{{ route('login') }}" class="btn btn-outline-success  btn-group-lg"> Deshboard</a>
 
 
                             </div>

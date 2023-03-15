@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\View\View;
 use App\Models\product;
 use App\Models\addtocard;
+use App\Models\order;
+use App\Models\orderitem;
 use App\Models\reviews;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,5 +65,58 @@ class cardordercontroller extends Controller
     public function card()
     {
         return view('user\deshboard\card');
+    }
+
+    // order
+    public function order()
+
+    {
+
+        $order= order::where('customar_id',Auth::id())->with('orderitem')->get();
+        // dd($order);
+        return view('user\deshboard\order',compact('order'));
+    }
+    public function accountdetails()
+
+    {
+
+ 
+        return view('user\deshboard\accountdetails');
+    }
+    public function ordermanage()
+
+    {
+
+        $order= orderitem::where('vandor_id',Auth::id())->with('order')->get();
+        // dd($order);
+        return view('user\deshboard\ordermanage',compact('order'));
+    }
+    public function orderview(Request $request)
+
+    {
+        $orderid=$request->id;
+
+        $orderitem= orderitem::where('order_id',$orderid)->where('vandor_id',Auth::id())->with('order')->with('product')->get();
+        $order= order::where('id',$orderid)->get()->first();
+
+        return view('user\deshboard\orderview',compact('orderitem','order'));
+    }
+    public function orderdelivery(Request $request)
+
+    {
+        $orderid=$request->id;
+
+        
+        $order= order::where('id',$orderid)->get()->first();
+       $order->update(
+        [
+            'status'=>'deliveryed',
+        ]
+        );
+        // $product->update([
+        //     'views' => $oldviews + '1',
+        // ]);
+        // dd($orderid);
+        return redirect()->back()->withmessage('delivery succes');
     }
 }

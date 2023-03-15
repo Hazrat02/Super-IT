@@ -42,7 +42,7 @@
                                 
                             @endphp
                         @endif
-                        <img src="{{ asset('storage\product') }}\{{$photo}}" alt="product" height="84" width="94" />
+                        <img src="{{ asset('product')  }}\{{$photo}}" alt="product" height="84" width="94" />
                     </a>
                 </figure>
                 <form action="{{route('card.remove')}}" method="POST">

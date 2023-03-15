@@ -48,7 +48,7 @@
                                                     @endif
 
                                                     <figure>
-                                                        <img src="{{ asset('storage\product') }}\{{ $photo }}"
+                                                        <img src="{{ asset('product') }}\{{ $photo }}"
                                                             alt="product" width="300" height="338">
                                                     </figure>
                                                 </a>

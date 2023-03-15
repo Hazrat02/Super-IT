@@ -28,7 +28,7 @@ class admincontroller extends Controller
         $company = 'Super-IT';
         $page = 'home';
         $metatag = 'home';
-
+       
         return view('welcome',compact('page','company'));
     }
     //get all user model data with pagination
@@ -73,6 +73,7 @@ class admincontroller extends Controller
         $edituser = user::find($id);
         // dd($edituser);
         return view('admin/useredit', compact('edituser'));
+        
     }
 
     //update user data store
@@ -102,7 +103,6 @@ class admincontroller extends Controller
    {
         $money = money::all();
         $page = 'moneymanage';
-
         // dd($money);
         return view('admin/moneymanage', compact('money','page'))->with('succes', 'welcome boss');
    }

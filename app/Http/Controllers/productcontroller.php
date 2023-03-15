@@ -26,10 +26,13 @@ class productcontroller extends Controller
 
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
-                $name = rand(0000000, 999999) . $file->getClientOriginalName();
-                $save = $file->storeAs('public/product', $name);
+                $name = rand(0000000, 999999).$file->getClientOriginalName();
+
+                $file->move(public_path('product'),$name);
+               
                 $image[] = $name;
             }
+
         }
 
         product::create([
@@ -49,12 +52,11 @@ class productcontroller extends Controller
 
     public function getproduct()
     {
-        $product = product::paginate('8');
+        $product = product::orderBy('id', 'desc')->paginate(6);
         $page = 'home';
 
-        // dd($product);
-        // return $product;
-        return view('home', compact('product', 'page'));
+      
+         return view('home', compact('product', 'page'));
     }
 
     public function viewsproduct(Request $request)

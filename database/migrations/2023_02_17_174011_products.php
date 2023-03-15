@@ -23,8 +23,9 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('discount');
             $table->integer('delivery_fee');
-            $table->string('discription');
+            $table->longText('discription');
             $table->string('photo');
+            $table->string('views')->nullable();
            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            

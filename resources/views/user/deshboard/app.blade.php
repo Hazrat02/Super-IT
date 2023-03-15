@@ -12,7 +12,7 @@
     <meta name="author" content="D-THEMES">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('userstyle') }}/assets/images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="{{asset('img\super it.jpg')}}">
 
     <!-- WebFont.js -->
     <script>
@@ -98,6 +98,12 @@
     <!-- Default CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/css/style.min.css">
     <style>
+        .activeside{
+            border-bottom: solid rgb(0, 157, 214);
+            
+            
+        }
+        
         @media only screen and (max-width: 765px) {
 
             .menuhide {

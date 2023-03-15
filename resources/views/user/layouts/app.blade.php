@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Super-IT</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,12 +36,12 @@
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ asset('user/dist/') }}/assets/images/favicon/apple-touch-icon.png">
+        href="{{asset('img\super it.jpg')}}">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('user/dist/') }}/assets/images/favicon/favicon-32x32.png">
+        href="{{asset('img\super it.jpg')}}">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('user/dist/') }}/assets/images/favicon/favicon-16x16.png">
-    <link rel="mask-icon" href="{{ asset('user/dist/') }}/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        href="{{asset('img\super it.jpg')}}">
+    <link rel="mask-icon" href="{{asset('img\super it.jpg')}}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 

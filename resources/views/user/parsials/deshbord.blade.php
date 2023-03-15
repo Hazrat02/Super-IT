@@ -1,88 +1,123 @@
 @extends('user\deshboard\app2')
 @section('content')
+<div class=" active in" id="account-dashboard">
+                        <p class="greeting">
+                            Hello
+                            <span class="text-dark font-weight-bold">{{ auth()->user()->name }}</span>
+                            @if (Auth::user()->role=='2')
+                            (Seller)
+                            @endif
+                            
+                            @if (Auth::user()->role=='1')
+                            (user)
+                            @endif
+                            
+                            @if (Auth::user()->role=='0')
+                            (Admin)
+                            @endif
+                            
+
+                        </p>
+
+                      
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mb-4 col-6">
+                                <a href="#account-orders" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-orders">
+                                            <i class="w-icon-orders"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Orders</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-6 mb-4">
+                                <a href="{{ route('add.product') }}" class="link-to-tab">
+                                    <div class="icon-box text-center">
+
+                                        <span class="icon-box-icon icon-download">
+                                            <i class="w-icon-cart"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Add Product</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-6 mb-4">
+                                <a href="#account-downloads" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-download">
+                                            <i class="w-icon-download"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Downloads</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6 mb-4">
+                                <a href="#account-addresses" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-address">
+                                            <i class="w-icon-map-marker"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Addresses</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6 mb-4">
+                                <a href="#account-details" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-account">
+                                            <i class="w-icon-user"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Account Details</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6  mb-4">
+                                <a href="wishlist.html" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-wishlist">
+                                            <i class="w-icon-heart"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Wishlist</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 col-6 mb-0">
+
+                                <form class="" action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-logout">
+                                            <i class="w-icon-logout"></i>
+                                        </span>
+
+                                        <div class="icon-box-content">
+                                            <label class="text-uppercase mb-0" for="Logout">Logout</label>
+                                            <button class="d-none" id="Logout" type="submit"></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
 
-<div  class="tab-pane mb-4" id="account-orders">
-    <div class="icon-box icon-box-side icon-box-light">
-        <span class="icon-box-icon icon-orders">
-            <i class="w-icon-orders"></i>
-        </span>
-        <div class="icon-box-content">
-            <h4 class="icon-box-title text-capitalize ls-normal mb-0">Orders</h4>
-        </div>
-    </div>
 
-    <table class="shop-table account-orders-table mb-6">
-        <thead>
-            <tr>
-                <th class="order-id">Order</th>
-                <th class="order-date">Date</th>
-                <th class="order-status">Status</th>
-                <th class="order-total">Total</th>
-                <th class="order-actions">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="order-id">#2321</td>
-                <td class="order-date">August 20, 2021</td>
-                <td class="order-status">Processing</td>
-                <td class="order-total">
-                    <span class="order-price">$121.00</span> for
-                    <span class="order-quantity"> 1</span> item
-                </td>
-                <td class="order-action">
-                    <a href="#"
-                        class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="order-id">#2321</td>
-                <td class="order-date">August 20, 2021</td>
-                <td class="order-status">Processing</td>
-                <td class="order-total">
-                    <span class="order-price">$150.00</span> for
-                    <span class="order-quantity"> 1</span> item
-                </td>
-                <td class="order-action">
-                    <a href="#"
-                        class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="order-id">#2319</td>
-                <td class="order-date">August 20, 2021</td>
-                <td class="order-status">Processing</td>
-                <td class="order-total">
-                    <span class="order-price">$201.00</span> for
-                    <span class="order-quantity"> 1</span> item
-                </td>
-                <td class="order-action">
-                    <a href="#"
-                        class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="order-id">#2318</td>
-                <td class="order-date">August 20, 2021</td>
-                <td class="order-status">Processing</td>
-                <td class="order-total">
-                    <span class="order-price">$321.00</span> for
-                    <span class="order-quantity"> 1</span> item
-                </td>
-                <td class="order-action">
-                    <a href="#"
-                        class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="shop-banner-sidebar.html" class="btn btn-dark btn-rounded btn-icon-right">Go
-        Shop<i class="w-icon-long-arrow-right"></i></a>
-</div>
-
-<div class="tab-pane" id="account-downloads">
+@endsection
+{{-- <div class="tab-pane" id="account-downloads">
     <div class="icon-box icon-box-side icon-box-light">
         <span class="icon-box-icon icon-downloads mr-2">
             <i class="w-icon-download"></i>
@@ -256,6 +291,4 @@
         <button type="submit" class="btn btn-dark btn-rounded btn-sm mb-4">Save
             Changes</button>
     </form>
-</div>
-
-@endsection
+</div> --}}

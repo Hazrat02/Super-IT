@@ -49,7 +49,7 @@
                                                             <figure class="product-image">
 
 
-                                                                <img src="{{ asset('storage\product') }}\{{ $imgs }}"
+                                                                <img src="{{ asset('product') }}\{{ $imgs }}"
                                                                     data-zoom-image="{{ asset('storage\product') }}\{{ $imgs }}"
                                                                     alt="Electronics Black Wrist Watch" width="800"
                                                                     height="900">
@@ -74,7 +74,7 @@
 
                                                     @foreach ($img as $imgs)
                                                         <div class="product-thumb swiper-slide">
-                                                            <img src="{{ asset('storage\product') }}\{{ $imgs }}"
+                                                            <img src="{{ asset('product') }}\{{ $imgs }}"
                                                                 alt="Product Thumb" width="800" height="900" />
                                                         </div>
                                                     @endforeach
@@ -539,7 +539,7 @@
                                                 <figure class="product-media">
                                                     <a href="{{ route('views.product', ['id' => $Vitem->id]) }}">
                                                         <img style="height: 30vw ; repeat:no-repeat"
-                                                            src="{{ asset('storage\product') }}\{{ $photo }}"
+                                                            src="{{ asset('product') }}\{{ $photo }}"
                                                             alt="Product" width="300" height="338" />
 
                                                     </a>
@@ -620,7 +620,7 @@
                                                 <figure class="product-media">
                                                     <a href="{{ route('views.product', ['id' => $bal->id]) }}">
                                                         <img style="height: 30vw"
-                                                            src="{{ asset('storage\product') }}\{{ $photo }}"
+                                                            src="{{ asset('product') }}\{{ $photo }}"
                                                             alt="Product" width="300" />
                                                     </a>
                                                     <div class="product-action-vertical">

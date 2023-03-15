@@ -176,7 +176,7 @@
 
             <a class="centercompanya" href="https://web.facebook.com/profile.php?id=100088887035720">
                 <img class="companylog"
-                    src="https://scontent.fdac96-1.fna.fbcdn.net/v/t39.30808-1/320453052_1600518210407639_152345529803957124_n.jpg?stp=dst-jpg_p160x160&_nc_cat=104&ccb=1-7&_nc_sid=c6021c&_nc_eui2=AeGkAwSPRdsnZKuTxeQAb7D22aE1a2So-qzZoTVrZKj6rGWzIQGYf2U--Clew1rpI0k8scbFzFH5i5LFYvrzsnWI&_nc_ohc=RN7NpEkG4g8AX_QwItJ&_nc_ht=scontent.fdac96-1.fna&oh=00_AfDuadTefRN6jpSuQFltO-752mbj0RdyTPO0DreIHsFWKQ&oe=63F07594"
+                    src="{{asset('img\super it.jpg')}}"
                     alt="">
             </a>
         </div>
@@ -253,7 +253,7 @@
         <div class="text-center col-12 col-sm-6 col-lg-3 col-md-4  mb-3">
             <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
                 <a href=""><img style=" height: 15rem;"
-                        src="{{ asset('storage\product') }}\{{$photo}}" class="card-img-top"
+                        src="{{ asset('product') }}\{{$photo}}" class="card-img-top"
                         alt="..."></a>
 
 

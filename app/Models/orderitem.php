@@ -27,6 +27,7 @@ class orderitem extends Model
         'subtotal',
         'order_id',
         'vandor_id',
+        'created_at',
      
         
     ];
@@ -34,6 +35,11 @@ class orderitem extends Model
     public function order(): HasOne
 {
     return $this->hasOne(order::class,'id','order_id');
+}
+
+public function product(): HasOne
+{
+    return $this->hasOne(product::class,'id','product_id');
 }
 
 }
