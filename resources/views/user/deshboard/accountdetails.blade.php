@@ -19,22 +19,22 @@
                         class="form-control form-control-md">
                 </div>
             </div>
-            <div class="col-md-6">
+            {{-- <div class="col-md-6">
                 <div class="form-group">
                     <label for="lastname">Last name *</label>
                     <input type="text" id="lastname" name="lastname" placeholder="Doe"
                         class="form-control form-control-md">
                 </div>
-            </div>
+            </div> --}}
         </div>
 
-        <div class="form-group mb-3">
+        {{-- <div class="form-group mb-3">
             <label for="display-name">Display name *</label>
             <input type="text" id="display-name" name="display_name" placeholder="John Doe"
                 class="form-control form-control-md mb-0">
             <p>This will be how your name will be displayed in the account section and in
                 reviews</p>
-        </div>
+        </div> --}}
 
         <div class="form-group mb-6">
             <label for="email_1">Email address *</label>
@@ -42,24 +42,14 @@
                 class="form-control form-control-md">
         </div>
 
-        <h4 class="title title-password ls-25 font-weight-bold">Password change</h4>
+        
         <div class="form-group">
             <label class="text-dark" for="cur-password">Current Password leave blank to
                 leave unchanged</label>
             <input type="password" class="form-control form-control-md" id="cur-password"
                 name="cur_password">
         </div>
-        <div class="form-group">
-            <label class="text-dark" for="new-password">New Password leave blank to leave
-                unchanged</label>
-            <input type="password" class="form-control form-control-md" id="new-password"
-                name="new_password">
-        </div>
-        <div class="form-group mb-10">
-            <label class="text-dark" for="conf-password">Confirm Password</label>
-            <input type="password" class="form-control form-control-md" id="conf-password"
-                name="conf_password">
-        </div>
+       
         <button type="submit" class="btn btn-dark btn-rounded btn-sm mb-4">Save
             Changes</button>
     </form>

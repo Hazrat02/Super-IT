@@ -33,6 +33,8 @@ class cardordercontroller extends Controller
     }
     public function addtocard(Request $request)
     {
+
+        // dd($request->all());
         $product = product::where('id', $request->product_id)
             ->get()
             ->first();

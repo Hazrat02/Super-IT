@@ -15,3 +15,5 @@ Route::get('/add.product',[productcontroller::class,'addproduct'])->name('add.pr
 Route::get('/views.product/[$id]',[productcontroller::class,'viewsproduct'])->name('views.product');
 Route::post('/add.product',[productcontroller::class,'createproduct'])->name('create.product');
 Route::post('/reviews',[productcontroller::class,'makereviews'])->name('reviews');
+Route::get('/search',[productcontroller::class,'search'])->name('search');
+Route::get('/filterproduct/{$data}',[productcontroller::class,'filterproduct'])->name('filterproduct');

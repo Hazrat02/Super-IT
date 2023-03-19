@@ -1,4 +1,4 @@
-<div class="offcanvas offcanvas-end text-bg-white searchhide" tabindex="-1" id="offcanvasDarkNavbar"
+<div style="background-color: #D0E5EC" class="offcanvas offcanvas-end  searchhide" tabindex="-1" id="offcanvasDarkNavbar"
     aria-labelledby="offcanvasDarkNavbarLabel">
     <style>
 
@@ -37,12 +37,27 @@
             </li>
 
             <li class="nav-item dropdown">
+                {{-- <div class="dropdown-menu dropdown-menu-dark">
+                    <select id="category" name="category">
+                        <option class="dropdown-item" value="">All Categories</option>
+                        <option class="dropdown-item" value="4">Fashion</option>
+                        <option class="dropdown-item" value="5">Furniture</option>
+                        <option class="dropdown-item" value="6">Shoes</option>
+                        <option class="dropdown-item" value="7">Sports</option>
+                        <option class="dropdown-item" value="8">Games</option>
+                        <option class="dropdown-item" value="9">Computers</option>
+                        <option  class="dropdown-item" value="10">Electronics</option>
+                        <option class="dropdown-item" value="11">Kitchen</option>
+                        <option class="dropdown-item" value="12">Clothing</option>
+                    </select>
+                </div> --}}
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    Dropdown
+                    Categories
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    
+                    <li><a class="dropdown-item" href="">Fashion</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li>
                         <hr class="dropdown-divider">

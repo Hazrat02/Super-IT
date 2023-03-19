@@ -11,11 +11,14 @@
     <a href="{{ route('order') }}" class="link-link @if (URL::current()==URL::to('order'))
     activeside @endif">Orders</a>
 </li>
-@if (Auth::user()->role=='2')
-<li class="link-item"> 
+@if (isset(Auth::user()->role) && Auth::user()->role ==='2')
+
+    <li class="link-item"> 
     <a href="{{route('order.manage')}}" class="link-link @if (URL::current()==URL::to('order/manage'))
     activeside @endif">Orders Manage</a>
 </li>
+
+
 @endif
 <li class="link-item">
     <a href="{{route('card')}}" class="link-link @if (URL::current()==URL::to('card'))

@@ -214,12 +214,13 @@ box-shadow: 0px 0px 8px 1px #888888;"
             }
         </style>
 
-        <form class="bg-black searchbody">
+        <form class="bg-black searchbody" action="{{route('search')}}" method="GET">
+            @csrf
+            <input type="search" class="searchtext rounded-100" name="name" placeholder="Search..">
+            
 
-            <input type="search" class="searchtext rounded-100" placeholder="Username">
 
-
-            <button class="searchbtn" href="">
+            <button class="searchbtn" type="submit">
 
                 <i style="color: #2CACFC" class="fa fa-search" aria-hidden="true"></i>
 

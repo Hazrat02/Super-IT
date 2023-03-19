@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\View;
@@ -13,6 +14,7 @@ use App\Models\product;
 use App\Models\reviews;
 
 use Illuminate\Http\Request;
+use PHPUnit\Framework\Constraint\IsTrue;
 
 class productcontroller extends Controller
 {
@@ -26,13 +28,12 @@ class productcontroller extends Controller
 
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
-                $name = rand(0000000, 999999).$file->getClientOriginalName();
+                $name = rand(0000000, 999999) . $file->getClientOriginalName();
 
-                $file->move(public_path('product'),$name);
-               
+                $file->move(public_path('product'), $name);
+
                 $image[] = $name;
             }
-
         }
 
         product::create([
@@ -55,8 +56,7 @@ class productcontroller extends Controller
         $product = product::orderBy('id', 'desc')->paginate(6);
         $page = 'home';
 
-      
-         return view('home', compact('product', 'page'));
+        return view('home', compact('product', 'page'));
     }
 
     public function viewsproduct(Request $request)
@@ -108,5 +108,54 @@ class productcontroller extends Controller
         return redirect()
             ->back()
             ->withMessage('Your reviews succesfully add! ');
+    }
+    public function search(Request $request)
+    {
+        $query = $request->name;
+        $category = $request->category;
+
+        $data = product::when($query, function ($queryBuilder, $query) {
+            return $queryBuilder->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->where('product_name', 'LIKE', '%' . $query . '%')
+                    ->orWhere('discription', 'LIKE', '%' . $query . '%')
+                    ->orWhere('title', 'LIKE', '%' . $query . '%');
+            });
+        })
+        ->when($category, function ($queryBuilder, $category) {
+            return $queryBuilder->where('category', $category);
+        })
+        ->paginate(10);
+
+        return view('filterproduct', compact('data'));
+    }
+   
+    public function filterproduct(Request $request)
+    {
+
+        
+        foreach ($request->data as $value) {
+            
+            dd($value->price);
+        }
+
+
+
+
+        return view('filterproduct', compact('datas'));
+
+        // if($data = Session::get('customer_data')) {
+        // dump($data);
+        // }
+        // dd($request);
+        // Request $request
+        // reviews::create([
+        //     'product_id' => $request->product_id,
+        //     'user_id' => $request->user_id,
+        //     'reting' => $request->rating,
+        //     'comment' => $request->comment,
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        // ]);
+        //
     }
 }

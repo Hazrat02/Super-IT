@@ -50,7 +50,7 @@
 
 
                                                                 <img src="{{ asset('product') }}\{{ $imgs }}"
-                                                                    data-zoom-image="{{ asset('storage\product') }}\{{ $imgs }}"
+                                                                    data-zoom-image="{{ asset('product') }}\{{ $imgs }}"
                                                                     alt="Electronics Black Wrist Watch" width="800"
                                                                     height="900">
                                                             </figure>
@@ -242,7 +242,7 @@
                                                             style="background-color: #353B55;" />
                                                     </figure>
                                                 </div>
-                                                <div class="col-md-6 pl-2 pl-md-6 mb-4">
+                                                {{-- <div class="col-md-6 pl-2 pl-md-6 mb-4">
                                                     <div class="vendor-user">
 
                                                         <div>
@@ -275,7 +275,7 @@
                                                     <a href="vendor-dokan-store.html"
                                                         class="btn btn-dark btn-link btn-underline btn-icon-right">Visit
                                                         Store<i class="w-icon-long-arrow-right"></i></a>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         @endforeach
                                     </div>
