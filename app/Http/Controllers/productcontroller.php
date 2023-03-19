@@ -111,8 +111,12 @@ class productcontroller extends Controller
     }
     public function search(Request $request)
     {
+        $search=$request;
         $query = $request->name;
         $category = $request->category;
+        // $orderby='desc';
+        
+        // dd($orderBy);
 
         $data = product::when($query, function ($queryBuilder, $query) {
             return $queryBuilder->where(function ($queryBuilder) use ($query) {
@@ -123,30 +127,48 @@ class productcontroller extends Controller
         })
         ->when($category, function ($queryBuilder, $category) {
             return $queryBuilder->where('category', $category);
-        })
-        ->paginate(10);
+        });
 
-        return view('filterproduct', compact('data'));
+        if (isset($request->orderby)) {
+            $orderBy = unserialize($request->orderby);
+            $data = $data->orderBy($orderBy['key'], $orderBy['value'])->get(); // Order the results by price in the specified direction
+        }else {
+            $data= $data->get();
+        }
+
+        if (isset($request->count)) {
+            $data = $data->take($request->count); // Limit the results to the specified number of items
+        }
+
+        
+        // dd($data);
+        return view('filterproduct', compact('data', 'search'));
+        
+     
     }
    
     public function filterproduct(Request $request)
     {
 
-        
-        foreach ($request->data as $value) {
-            
-            dd($value->price);
-        }
+        $data = json_decode($request->bal);
+        $lowToHight = collect($data->data)->sortByDesc('price')->values()->all();
+        $HightTolow = collect($data->data)->sortBy('price')->values()->all();
+
+         dd($HightTolow);
 
 
 
 
-        return view('filterproduct', compact('datas'));
+        // return view('filterproduct', compact('datas'));
 
-        // if($data = Session::get('customer_data')) {
-        // dump($data);
+        // // if($data = Session::get('customer_data')) {
+        // // dump($data);
+        // // }
+    
+        // foreach ($request->all() as $value) {
+        //     dd($value);
         // }
-        // dd($request);
+        // dd($request->all());
         // Request $request
         // reviews::create([
         //     'product_id' => $request->product_id,

@@ -22,10 +22,11 @@
                     <div class="shop-content">
                         <!-- Start of Shop Main Content -->
                         <div class="main-content">
-                            <form method="GET" action="{{route('filterproduct',['data'=>$data])}}" class="toolbox sticky-toolbox sticky-content fix-top">
+                            <form method="GET" action="{{route('search')}}" class="toolbox sticky-toolbox sticky-content fix-top">
                                 @csrf
                                 <div class="toolbox-left">
-                                    <input type="hidden" name="data" value="{{$data}}">
+                                    <input type="hidden" name="name" value="{{ $search->name }}">
+                                    <input type="hidden" name="category" value="{{ $search->category}}">
                                     <button type="submit" 
                                         class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
                                 btn-icon-left"><i
@@ -33,22 +34,38 @@
                                     <div class="toolbox-item toolbox-sort select-box text-dark">
                                         <label>Sort By :</label>
                                         <select name="orderby" class="form-control">
-                                            <option value="default" selected="selected">Default sorting</option>
-                                            <option value="popularity">Sort by popularity</option>
-                                            <option value="rating">Sort by average rating</option>
-                                            <option value="date">Sort by latest</option>
-                                            <option value="price-low">Sort by pric: low to high</option>
-                                            <option value="price-high">Sort by price: high to low</option>
+                                            <option value="" selected="selected">Default sorting</option>
+                                            <option value="{{ serialize(  $myArray = [
+                                                'key' => 'views',
+                                                'value' => 'desc',
+                                            ]) }}">Sort by popularity</option>
+                                            
+                                            <option value="{{ serialize(  $myArray = [
+                                                'key' => 'id',
+                                                'value' => 'desc',
+                                            ]) }}">Sort by latest</option>
+                                            <option value="{{ serialize(  $myArray = [
+                                                'key' => 'price',
+                                                'value' => 'Asc',
+                                            ]) }}">Sort by pric: low to high</option>
+                                            <option value="{{ serialize(  $myArray = [
+                                                'key' => 'price',
+                                                'value' => 'desc',
+                                            ]) }}">Sort by price: high to low</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="toolbox-right">
                                     <div class="toolbox-item toolbox-show select-box">
                                         <select name="count" class="form-control">
-                                            <option value="9">Show 9</option>
-                                            <option value="12" selected="selected">Show 12</option>
-                                            <option value="24">Show 24</option>
-                                            <option value="36">Show 36</option>
+                                            <option value="" selected="selected">Show All Product</option>
+                                            <option value="1">Show 1</option>
+                                            <option value="2">Show 2</option>
+                                            <option value="5">Show 5</option>
+                                            <option value="10">Show 10</option>
+                                            <option value="20">Show 20</option>
+                                            <option value="30">Show 30</option>
+                                            <option value="40">Show 40</option>
                                         </select>
                                     </div>
 
