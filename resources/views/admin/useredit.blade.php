@@ -97,7 +97,7 @@
                                 <div class="form-outline mb-4">
                                     <input name="name" placeholder="Enter User Name" value="{{ $edituser->name }}"
                                         type="text" id="form3Example3" class="form-control" required />
-                                    <label class="form-label" for="form3Example3">Email address</label>
+                                    <label class="form-label" for="form3Example3">Name</label>
                                 </div>
                                 <div class="form-outline mb-4">
                                     <input name="email" placeholder="Enter Your Email" value="{{ $edituser->email }}"

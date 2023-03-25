@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\order;
 use Illuminate\Support\Facades\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -53,10 +54,14 @@ class productcontroller extends Controller
 
     public function getproduct()
     {
-        $product = product::orderBy('id', 'desc')->paginate(6);
+        $product = product::orderBy('id', 'DESC')->paginate(6);
         $page = 'home';
+        $topproduct = product::orderBy('views', 'DESC')
+            ->get()
+            ->take(10);
+        // dd($topproduct);
 
-        return view('home', compact('product', 'page'));
+        return view('home', compact('product', 'page', 'topproduct'));
     }
 
     public function viewsproduct(Request $request)
@@ -111,60 +116,57 @@ class productcontroller extends Controller
     }
     public function search(Request $request)
     {
-        $search=$request;
+        $search = $request;
         $query = $request->name;
         $category = $request->category;
         // $orderby='desc';
-        
+
         // dd($orderBy);
 
         $data = product::when($query, function ($queryBuilder, $query) {
             return $queryBuilder->where(function ($queryBuilder) use ($query) {
-                $queryBuilder->where('product_name', 'LIKE', '%' . $query . '%')
+                $queryBuilder
+                    ->where('product_name', 'LIKE', '%' . $query . '%')
                     ->orWhere('discription', 'LIKE', '%' . $query . '%')
                     ->orWhere('title', 'LIKE', '%' . $query . '%');
             });
-        })
-        ->when($category, function ($queryBuilder, $category) {
+        })->when($category, function ($queryBuilder, $category) {
             return $queryBuilder->where('category', $category);
         });
-
-        if (isset($request->orderby)) {
-            $orderBy = unserialize($request->orderby);
-            $data = $data->orderBy($orderBy['key'], $orderBy['value'])->get(); // Order the results by price in the specified direction
-        }else {
-            $data= $data->get();
-        }
-
         if (isset($request->count)) {
             $data = $data->take($request->count); // Limit the results to the specified number of items
         }
+        if (isset($request->orderby)) {
+            $orderBy = unserialize($request->orderby);
+            $data = $data->orderBy($orderBy['key'], $orderBy['value'])->get(); // Order the results by price in the specified direction
+        } else {
+            $data = $data->get();
+        }
 
-        
         // dd($data);
         return view('filterproduct', compact('data', 'search'));
-        
-     
     }
-   
+
     public function filterproduct(Request $request)
     {
-
         $data = json_decode($request->bal);
-        $lowToHight = collect($data->data)->sortByDesc('price')->values()->all();
-        $HightTolow = collect($data->data)->sortBy('price')->values()->all();
+        $lowToHight = collect($data->data)
+            ->sortByDesc('price')
+            ->values()
+            ->all();
+        $HightTolow = collect($data->data)
+            ->sortBy('price')
+            ->values()
+            ->all();
 
-         dd($HightTolow);
-
-
-
+        dd($HightTolow);
 
         // return view('filterproduct', compact('datas'));
 
         // // if($data = Session::get('customer_data')) {
         // // dump($data);
         // // }
-    
+
         // foreach ($request->all() as $value) {
         //     dd($value);
         // }
@@ -180,4 +182,77 @@ class productcontroller extends Controller
         // ]);
         //
     }
+    public function productdelete(Request $request)
+    {
+        $product = product::destroy($request->id);
+        return redirect()
+            ->back()
+            ->withMessage('product deleted!');
+    }
+    public function orderdelete(Request $request)
+    {
+        $product = order::destroy($request->id);
+        return redirect()
+            ->back()
+            ->withMessage('Order deleted!');
+    }
+    public function productedit(Request $request)
+    {
+        $product = product::where('id', $request->id)
+            ->get()
+            ->first();
+        // dd($product);
+        return View('admin/productedit', compact('product'));
+    }
+    public function producteditStore(Request $request)
+    {
+       
+    $product = product::where('id', $request->id)
+        ->get()
+        ->first();
+
+    if ($request->file('image') != null) {
+        $image = [];
+
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $name = rand(0000000, 999999) . $file->getClientOriginalName();
+
+                $file->move(public_path('product'), $name);
+
+                $image[] = $name;
+                
+            }
+        }
+
+        $photo = implode('|', $image);
+    } else {
+        $photo = $product->photo;
+    }
+
+    $product->update([
+        'product_name' => $request->product_name,
+        'price' => $request->price,
+        'user_id' => $product->user_id,
+        'category' => $request->category,
+        'title' => $request->title,
+        'discount' => $request->discount,
+        'delivery_fee' => $request->delivery_fee,
+        'discription' => $request->discription,
+        'photo' => $photo,
+    ]);
+
+    return redirect()->back()->withMessage('product Update Succesfully done');
+}
+
+    public function productreviews(Request $request)
+    {
+       
+    $reviews = reviews::get();
+
+
+    return view('admin/productReviews',compact('reviews'));
+
+ 
+}
 }

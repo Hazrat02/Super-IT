@@ -4,7 +4,7 @@
 @section('mainaria')
 
 
-    <div class="  mt-0 text-center  content-wrapper ">
+    <div class="  mt-0 text-center content-wrapper overflow-auto content-wrapper ">
         <div>
             <h1 style="
             color: #090979;" class="font-italic">All User Here</h1>

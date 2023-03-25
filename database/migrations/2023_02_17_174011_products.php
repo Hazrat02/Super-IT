@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('delivery_fee');
             $table->longText('discription');
             $table->string('photo');
-            $table->string('views')->nullable();
+            $table->integer('views')->nullable();
            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            

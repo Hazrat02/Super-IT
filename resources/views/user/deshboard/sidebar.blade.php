@@ -27,12 +27,14 @@
 <li class="link-item">
     <a href="{{ route('add.product') }}" class="link-link ">Add Product</a>
 </li>
-<li class="nav-item">
-    <a href="#account-downloads" class="nav-link @if (URL::current()==URL::to('download'))
-    activeside @endif">Downloads</a>
+@if (isset(Auth::user()->role) && Auth::user()->role ==='2')
+<li class="link-item">
+    <a href="{{route('myproduct')}}" class="link-link @if (URL::current()==URL::to('myproduct'))
+    activeside @endif">My Product</a>
 </li>
+@endif
 <li class="nav-item">
-    <a href="#account-addresses" class="nav-link @if (URL::current()==URL::to('addresses'))
+    <a href="{{route('myproduct')}}" class="nav-link @if (URL::current()==URL::to('addresses'))
     activeside @endif">Addresses</a>
 </li>
 <li class="link-item">
@@ -41,7 +43,8 @@
 </li>
 
 <li class="link-item">
-    <a href="wishlist.html" class="link-link">Wishlist</a>
+    <a href="{{route('watchlist')}}" class="link-link @if (URL::current()==URL::to('watchlist'))
+    activeside @endif">Wishlist</a>
 </li>
 <form class="link-item" action="{{ route('logout') }}" method="post">
     @csrf

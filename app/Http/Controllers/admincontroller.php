@@ -12,11 +12,17 @@ use App\Models\money;
 use App\Models\User as ModelsUser;
 use Illuminate\Http\Request;
 
+
 use Illuminate\Container\Container;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\CustomClasses\ColectionPaginate;
 use App\Http\Middleware\admin;
+use App\Models\order;
+use App\Models\product;
+use App\Models\contactUS;
+use App\Models\reviews;
 use Illuminate\Support\Collection;
+use Illuminate\Support\mail;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\AppServiceProvider;
@@ -105,6 +111,49 @@ class admincontroller extends Controller
         $page = 'moneymanage';
         // dd($money);
         return view('admin/moneymanage', compact('money','page'))->with('succes', 'welcome boss');
+   }
+
+
+
+
+
+   public function allproduct()
+   {
+       $product= product::get();
+       $page= 'allproduct';
+
+        return view('admin/productmanage',compact('product','page'));
+   }
+
+
+
+   public function ordermanage()
+   {
+       $product= order::get();
+       $page= 'order';
+
+        return view('admin/productmanage',compact('product','page'));
+   }
+
+   public function contactus(Request $request)
+   {
+
+    contactUS::create(
+
+        [
+
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'sms'=>$request->sms,
+
+
+        ]
+        );
+        
+        // mail($request->email,"contact with me",$request->sms,$request->name,'bal');
+      
+
+        return redirect()->back()->withmassege('Your mail sent in Our support team!');
    }
 
 

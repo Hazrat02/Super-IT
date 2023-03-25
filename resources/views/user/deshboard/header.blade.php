@@ -19,7 +19,7 @@
                         <img src="{{ asset('img\20230109_014602.png') }}" alt="logo" width="144"
                             height="45" />
                     </a>
-                
+
 
                     <form action="{{ route('search') }}" method="GET"
                         class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
@@ -49,16 +49,16 @@
                         <a href="tel:#" class="w-icon-call"></a>
                         <div class="call-info d-lg-show">
                             <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                                <a href="mailto:#" class="text-capitalize">Live Chat</a> or :
+                                <a href="mailto:#" class="text-capitalize">Live Chat</a>
                             </h4>
-                            <a href="tel:#" class="phone-number font-weight-bolder ls-50">0(800)123-456</a>
+
                         </div>
                     </div>
-                    <a class="wishlist label-down link d-xs-show" href="wishlist.html">
+                    <a class="wishlist label-down link d-xs-show" href="{{ route('watchlist') }}">
                         <i class="w-icon-heart"></i>
                         <span class="wishlist-label d-lg-show">Wishlist</span>
                     </a>
-                    <a class="compare label-down link d-xs-show" href="compare.html">
+                    <a class="compare label-down link d-xs-show" href="{{ route('watchlist') }}">
                         <i class="w-icon-compare"></i>
                         <span class="compare-label d-lg-show">Compare</span>
                     </a>
@@ -90,3 +90,29 @@
         </circle>
     </svg> </a>
 <!-- End of Scroll Top -->
+<div  class="mobile-menu-wrapper">
+    <div class="mobile-menu-overlay"></div>
+    <!-- End of .mobile-menu-overlay -->
+
+    <a href="#" class="mobile-menu-close"><i class="close-icon"></i></a>
+    <!-- End of .mobile-menu-close -->
+
+    <div style="background-color: rgb(181, 200, 200)" class="mobile-menu-container scrollable">
+        <form action="#" method="get" class="input-wrapper">
+            <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search"
+                required />
+            <button class="btn btn-search" type="submit">
+                <i class="w-icon-search"></i>
+            </button>
+        </form>
+        <!-- End of Search Form -->
+   
+        <div  class="tab-content">
+                @include('user/deshboard/sidebar')
+            
+        </div>
+    </div>
+
+
+
+</div>

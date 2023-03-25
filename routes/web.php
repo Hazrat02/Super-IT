@@ -65,3 +65,10 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
+
+
+
+
+
+// contact Us
+Route::post('/contact.us', [admincontroller::class, 'contactus'])->name('contactus');

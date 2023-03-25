@@ -3,18 +3,19 @@
         <div class="row py-2">
             <div class="col-md-4">
                 <h3>Contact Us</h3>
-                <form>
+                <form method="POST" action="{{route('contactus')}}">
+                    @csrf
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea class="form-control" id="message" rows="3"></textarea>
+                        <textarea class="form-control" id="message" name="sms" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary m-2">Submit</button>
                 </form>

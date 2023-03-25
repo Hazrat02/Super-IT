@@ -157,7 +157,9 @@
     <script src="{{ asset('userstyle') }}/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="{{ asset('userstyle') }}/assets/js/main.min.js"></script>
 
-
+    <!-- Plugin JS File -->
+    <script src="{{ asset('userstyle') }}/assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
+    
 
     <script src="{{ asset('userstyle') }}/assets/vendor/sticky/sticky.js"></script>
     <script src="{{ asset('userstyle') }}/assets/vendor/jquery.plugin/jquery.plugin.min.js"></script>

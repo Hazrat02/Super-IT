@@ -2,7 +2,7 @@
 
 @section('mainaria')
 
-    <div class="  mt-0 text-center  content-wrapper ">
+    <div class="  mt-0 text-center content-wrapper overflow-auto  content-wrapper ">
         <div>
             <h1 style="
         color: #090979;" class="font-italic">All User Money</h1>
@@ -69,26 +69,11 @@
                     <br>
                 @endforeach
 
-                {{-- <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr> --}}
+   
             </tbody>
 
         </table>
-{{-- 
-        <div style=" text-align: center" class=" d-flex justify-content-between">
-            <span class=""></span>
-            <span style="text-align: center">{{ $userdata->links() }}</span>
-        </div> --}}
+
 
     </div>
 @endsection

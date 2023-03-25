@@ -34,3 +34,5 @@ Route::middleware(['auth'])->group(function () {
 Route::get('order/manage', [cardordercontroller::class,'ordermanage'])->name('order.manage');
 Route::get('order/orderview', [cardordercontroller::class,'orderview'])->name('orderview');
 Route::get('order/delivery/[$id]', [cardordercontroller::class,'orderdelivery'])->name('order.delivery');
+Route::get('watchlist', [cardordercontroller::class, 'watchlist'])->name('watchlist');
+Route::get('myproduct', [cardordercontroller::class, 'myproduct'])->name('myproduct');

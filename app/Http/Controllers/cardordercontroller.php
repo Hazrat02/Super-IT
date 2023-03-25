@@ -17,24 +17,11 @@ class cardordercontroller extends Controller
 {
 
  
-       
    
-    public function information()
-    {
-        return view('user\parsials\information');
-    }
-    public function orderinformation()
-    {
-        return view('user\parsials\sipping');
-    }
-    public function orderpayment()
-    {
-        return view('user\parsials\orderpayment');
-    }
     public function addtocard(Request $request)
     {
 
-        // dd($request->all());
+       
         $product = product::where('id', $request->product_id)
             ->get()
             ->first();
@@ -88,20 +75,41 @@ class cardordercontroller extends Controller
     public function ordermanage()
 
     {
+        $page = 'order';
+        if (auth()->user()->role === '0') {
+
+            $order = order::with('orderitem')->get();
+            // dd($order);
+            return view('admin/ordermanage', compact('order', 'page'));
+
+
+        }else {
+        
+
 
         $order= orderitem::where('vandor_id',Auth::id())->with('order')->get();
         // dd($order);
         return view('user\deshboard\ordermanage',compact('order'));
+        }
     }
     public function orderview(Request $request)
 
     {
         $orderid=$request->id;
+        $page='order';
 
-        $orderitem= orderitem::where('order_id',$orderid)->where('vandor_id',Auth::id())->with('order')->with('product')->get();
-        $order= order::where('id',$orderid)->get()->first();
-
-        return view('user\deshboard\orderview',compact('orderitem','order'));
+       
+        // dd($orderitem);
+        if (auth()->user()->role==='0') {
+            $orderitem = orderitem::where('order_id', $orderid)->with('order')->with('product')->get();
+            $order = order::where('id', $orderid)->get()->first();
+            return view('admin/orderview', compact('orderitem', 'order', 'page'));
+        }else {
+            $orderitem = orderitem::where('order_id', $orderid)->where('vandor_id', Auth::id())->with('order')->with('product')->get();
+            $order = order::where('id', $orderid)->get()->first();
+            return view('user\deshboard\orderview', compact('orderitem', 'order'));
+       
+        }
     }
     public function orderdelivery(Request $request)
 
@@ -121,4 +129,19 @@ class cardordercontroller extends Controller
         // dd($orderid);
         return redirect()->back()->withmessage('delivery succes');
     }
+    public function watchlist(Request $request)
+
+    {
+        return view('user\deshboard\watchlist');
+    }
+    public function myproduct(Request $request)
+
+    {
+
+        $myproduct=product::where('user_id',auth()->user()->id)->orderBy('id','desc')->paginate('1');
+        return view('user\deshboard\myproduct',compact('myproduct'));
+    }
+
+
+
 }

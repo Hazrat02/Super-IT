@@ -272,7 +272,7 @@
 
 
                 <div class="card-body quick-view single-product-details rounded">
-                    <h5 class="card-title">{{$item->title}}</h5>
+                    <h5 class="card-title">{{Str::limit($item->title,'20')}}</h5>
                     <div class=" card-text">
                         <p class="card-text">{{Str::limit($item->discription,'80')}}.</p>
                         <div class="d-flex justify-content-evenly">
@@ -299,39 +299,7 @@
         @endforeach
         <div class="item-center"> 
            {{ $product->links() }}</div>
-        <div class="text-center col-12 col-sm-6 col-lg-3 col-md-4  mb-3">
-            <div class="card product-single-hover hidden rounded my-2 bg-info " style="">
-                <a href=""><img style=" height: 15rem;"
-                        src="https://5.imimg.com/data5/BG/UM/MY-23375112/61-500x500.jpg" class="card-img-top"
-                        alt="..."></a>
 
-                <div class="justify-content-between text-center v mb-2">
-                    <h5 class="card-title">Card title</h5>
-                    <div class="product-price text-center">
-                        <strike style="font-size: 12px!important;color: #E96A6A!important;">
-                            3$
-                        </strike><br>
-                        <strong class="">
-                            100$
-                        </strong>
-                    </div>
-                </div>
-
-
-                <div class="card-body quick-view single-product-details rounded">
-                    <h5 class="card-title">Card title</h5>
-                    <div class=" card-text">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary   ">Go somewhere</a>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-       
 
     </div>
 

@@ -37,8 +37,8 @@ class CreateNewUser implements CreatesNewUsers
         
         // $extension = $file->getClientOriginalExtension();
         $name =rand(0000000,999999) .$file->getClientOriginalName();
-        
-        $save = $file->storeAs('public/profile',$name);
+        $file->move(public_path('storage/profile'), $name);
+        // $save = $file->storeAs('public/profile',$name);
         
     
 

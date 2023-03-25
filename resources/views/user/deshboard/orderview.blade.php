@@ -1,6 +1,6 @@
 @extends('user\deshboard\app2')
 @section('content')
-    <main class="main checkout container-fluid ml-0 pl-0">
+    <main class="main checkout container-fluid ml-0 pl-0 ">
       
         <!-- Start of PageContent -->
         <div class="page-content mt-0">

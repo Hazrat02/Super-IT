@@ -17,3 +17,8 @@ Route::post('/add.product',[productcontroller::class,'createproduct'])->name('cr
 Route::post('/reviews',[productcontroller::class,'makereviews'])->name('reviews');
 Route::get('/search',[productcontroller::class,'search'])->name('search');
 Route::get('/filterproduct/[$data]',[productcontroller::class,'filterproduct'])->name('filterproduct');
+Route::get('/productdelete/[$id]',[productcontroller::class, 'productdelete'])->name('productdelete');
+Route::get('/orderdelete/[$id]',[productcontroller::class, 'orderdelete'])->name('orderdelete');
+Route::get('/productedit/[$id]',[productcontroller::class, 'productedit'])->name('productedit');
+Route::get('/productreviews',[productcontroller::class, 'productreviews'])->name('productreviews');
+Route::post('/producteditStore',[productcontroller::class, 'producteditStore'])->name('producteditStore');

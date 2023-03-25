@@ -29,7 +29,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('admin') }}/plugins/summernote/summernote-bs4.min.css">
 
-
+    <link rel="stylesheet" href="{{ asset('admin') }}/plugins/fontawesome-free/css/all.min.css">
     {{-- login link bootstap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -52,44 +52,40 @@
         <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
             class="alert alert-dark" role="alert">
             {{ session('error') }}
-        </div>
-    @endif
+        </div> @endif
     <div class="wrapper">
 
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-                width="60">
-        </div>
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img style="border-radius: 100%" class="animation__shake" src="{{ asset('img\super it.jpg') }}" alt="Super-IT"
+            height="60" width="60">
+    </div>
 
 
 
-        {{-- Admin------------------------------------------------------------- --}}
+    {{-- Admin------------------------------------------------------------- --}}
 
-        {{-- admin --}}
+    {{-- admin --}}
 
 
+    <!-- /.header -->
 
-        @if (Auth::user()->role == '0')
-            <!-- /.header -->
+    @include('admin/header')
 
-            @include('admin/header')
-
-            <!-- /.sidebar -->
-            @include('admin/sidebar')
+    <!-- /.sidebar -->
+    @include('admin/sidebar')
 
 
 
-            {{-- main aria --}}
+    {{-- main aria --}}
 
 
-            @yield('mainaria')
+    @yield('mainaria')
 
 
 
-            <!-- /.content-wrapper -->
-            @include('admin/miniside')
-        @endif
+    <!-- /.content-wrapper -->
+    @include('admin/miniside')
 
 
 
@@ -131,40 +127,41 @@
 
 
 
-        <!-- jQuery -->
-        <script src="{{ asset('admin/') }}/plugins/jquery/jquery.min.js"></script>
-        <!-- jQuery UI 1.11.4 -->
-        <script src="{{ asset('admin/') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
-            $.widget.bridge('uibutton', $.ui.button)
-        </script>
-        <!-- Bootstrap 4 -->
-        <script src="{{ asset('admin') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- ChartJS -->
-        <script src="{{ asset('admin') }}/plugins/chart.js/Chart.min.js"></script>
-        <!-- Sparkline -->
-        <script src="{{ asset('admin') }}/plugins/sparklines/sparkline.js"></script>
-        <!-- JQVMap -->
-        <script src="{{ asset('admin') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
-        <script src="{{ asset('admin') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-        <!-- jQuery Knob Chart -->
-        <script src="{{ asset('admin') }}/plugins/jquery-knob/jquery.knob.min.js"></script>
-        <!-- daterangepicker -->
-        <script src="{{ asset('admin') }}/plugins/moment/moment.min.js"></script>
-        <script src="{{ asset('admin') }}/plugins/daterangepicker/daterangepicker.js"></script>
-        <!-- Tempusdominus Bootstrap 4 -->
-        <script src="{{ asset('admin') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-        <!-- Summernote -->
-        <script src="{{ asset('admin') }}/plugins/summernote/summernote-bs4.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="{{ asset('admin') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="{{ asset('admin') }}/dist/js/adminlte.js"></script>
-        <!-- AdminLTE for demo purposes -->
+
+    <!-- jQuery -->
+    <script src="{{ asset('admin/') }}/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{ asset('admin/') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('admin') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('admin') }}/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="{{ asset('admin') }}/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('admin') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="{{ asset('admin') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="{{ asset('admin') }}/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="{{ asset('admin') }}/plugins/moment/moment.min.js"></script>
+    <script src="{{ asset('admin') }}/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="{{ asset('admin') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('admin') }}/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('admin') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('admin') }}/dist/js/adminlte.js"></script>
+    {{-- <!-- AdminLTE for demo purposes -->
         <script src="{{ asset('admin') }}/dist/js/demo.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="{{ asset('admin') }}/dist/js/pages/dashboard.js"></script>
-</body>
+        <script src="{{ asset('admin') }}/dist/js/pages/dashboard.js"></script> --}}
+    </body>
 
 </html>

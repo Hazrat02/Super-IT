@@ -28,64 +28,64 @@
                         <div class="main-content mb-5">
                             <div class="product product-single row">
 
-                                
-                                    <div class="col-md-6 mb-6">
 
-                                        <div class="product-gallery product-gallery-sticky">
-                                            <div class="swiper-container product-single-swiper swiper-theme nav-inner"
-                                                data-swiper-options="{
+                                <div class="col-md-6 mb-6">
+
+                                    <div class="product-gallery product-gallery-sticky">
+                                        <div class="swiper-container product-single-swiper swiper-theme nav-inner"
+                                            data-swiper-options="{d
                                             'navigation': {
                                                 'nextEl': '.swiper-button-next',
                                                 'prevEl': '.swiper-button-prev'
                                             }
                                         }">
-                                                <div class="swiper-wrapper row cols-1 gutter-no">
-                                                    @php
-                                                        $img = explode('|', $product->photo);
-                                                        
-                                                    @endphp
-                                                    @foreach ($img as $imgs)
-                                                        <div class="swiper-slide">
-                                                            <figure class="product-image">
+                                            <div class="swiper-wrapper row cols-1 gutter-no">
+                                                @php
+                                                    $img = explode('|', $product->photo);
+                                                    
+                                                @endphp
+                                                @foreach ($img as $imgs)
+                                                    <div class="swiper-slide">
+                                                        <figure class="product-image">
 
 
-                                                                <img src="{{ asset('product') }}\{{ $imgs }}"
-                                                                    data-zoom-image="{{ asset('product') }}\{{ $imgs }}"
-                                                                    alt="Electronics Black Wrist Watch" width="800"
-                                                                    height="900">
-                                                            </figure>
-                                                        </div>
-                                                    @endforeach
-
-                                                </div>
-                                                <button class="swiper-button-next"></button>
-                                                <button class="swiper-button-prev"></button>
-                                                <a href="#" class="product-gallery-btn product-image-full"><i
-                                                        class="w-icon-zoom"></i></a>
-                                            </div>
-                                            <div class="product-thumbs-wrap swiper-container"
-                                                data-swiper-options="{
-                                            'navigation': {
-                                                'nextEl': '.swiper-button-next',
-                                                'prevEl': '.swiper-button-prev'
-                                            }
-                                        }">
-                                                <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-
-                                                    @foreach ($img as $imgs)
-                                                        <div class="product-thumb swiper-slide">
                                                             <img src="{{ asset('product') }}\{{ $imgs }}"
-                                                                alt="Product Thumb" width="800" height="900" />
-                                                        </div>
-                                                    @endforeach
+                                                                data-zoom-image="{{ asset('product') }}\{{ $imgs }}"
+                                                                alt="Electronics Black Wrist Watch" width="800"
+                                                                height="900">
+                                                        </figure>
+                                                    </div>
+                                                @endforeach
 
-                                                </div>
-                                                <button class="swiper-button-next"></button>
-                                                <button class="swiper-button-prev"></button>
                                             </div>
+                                            <button class="swiper-button-next"></button>
+                                            <button class="swiper-button-prev"></button>
+                                            <a href="#" class="product-gallery-btn product-image-full"><i
+                                                    class="w-icon-zoom"></i></a>
+                                        </div>
+                                        <div class="product-thumbs-wrap swiper-container"
+                                            data-swiper-options="{
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }">
+                                            <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+
+                                                @foreach ($img as $imgs)
+                                                    <div class="product-thumb swiper-slide">
+                                                        <img src="{{ asset('product') }}\{{ $imgs }}"
+                                                            alt="Product Thumb" width="800" height="900" />
+                                                    </div>
+                                                @endforeach
+
+                                            </div>
+                                            <button class="swiper-button-next"></button>
+                                            <button class="swiper-button-prev"></button>
                                         </div>
                                     </div>
-                                
+                                </div>
+
                                 {{-- ================ditails============================== --}}
                                 <div class="col-md-6 mb-4 mb-md-6">
                                     <div class="product-details" data-sticky-options="{'minWidth': 767}">
@@ -125,43 +125,45 @@
 
 
                                         <hr class="product-divider">
-                                        <form action="{{route('addtocard')}}" method="POST">
+                                        <form action="{{ route('addtocard') }}" method="POST">
                                             @csrf
-                                        <div class="product-form product-variation-form product-color-swatch">
-                                            <label>Color:</label>
-                                            <div class="d-flex align-items-center product-variations">
-                                                <a href="#" class="color" style="background-color: #ffcc01"></a>
-                                                <a href="#" class="color" style="background-color: #ca6d00;"></a>
-                                                <a href="#" class="color" style="background-color: #1c93cb;"></a>
-                                                <a href="#" class="color" style="background-color: #ccc;"></a>
-                                                <a href="#" class="color" style="background-color: #333;"></a>
+                                            <div class="product-form product-variation-form product-color-swatch">
+                                                <label>Color:</label>
+                                                <div class="d-flex align-items-center product-variations">
+                                                    <a href="#" class="color" style="background-color: #ffcc01"></a>
+                                                    <a href="#" class="color" style="background-color: #ca6d00;"></a>
+                                                    <a href="#" class="color" style="background-color: #1c93cb;"></a>
+                                                    <a href="#" class="color" style="background-color: #ccc;"></a>
+                                                    <a href="#" class="color" style="background-color: #333;"></a>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="product-form product-variation-form product-size-swatch">
-                                            <label class="mb-1">Size:</label>
-                                            <div class="flex-wrap d-flex align-items-center product-variations">
-                                                <select name="size" id="">
-                                                <option value="small" class="size">Small</option>
-                                                <option value="medium" class="size">Medium</option>
-                                                <option value="large" class="size">Large</option>
-                                                <option value="extra large" class="size">Extra Large</option>
-                                            </select>
+                                            <div class="product-form product-variation-form product-size-swatch">
+                                                <label class="mb-1">Size:</label>
+                                                <div class="flex-wrap d-flex align-items-center product-variations">
+                                                    <select name="size" id="">
+                                                        <option value="small" class="size">Small</option>
+                                                        <option value="medium" class="size">Medium</option>
+                                                        <option value="large" class="size">Large</option>
+                                                        <option value="extra large" class="size">Extra Large</option>
+                                                    </select>
+                                                </div>
+
                                             </div>
-                                            
-                                        </div>
 
 
-                                        
+
                                             <div class="fix-bottom product-sticky-content sticky-content">
                                                 <div class="product-form container">
                                                     <div class="product-qty-form">
                                                         <div class="input-group">
-                                                            <input name="quantity" class="quantity form-control" type="number" min="1"
-                                                                max="10000000">
-                                                            <button  type="button" class="quantity-plus w-icon-plus"></button>
-                                                            <button  type="button" class="quantity-minus w-icon-minus"></button>
-                                                           
+                                                            <input name="quantity" class="quantity form-control"
+                                                                type="number" min="1" max="10000000">
+                                                            <button type="button"
+                                                                class="quantity-plus w-icon-plus"></button>
+                                                            <button type="button"
+                                                                class="quantity-minus w-icon-minus"></button>
+
                                                         </div>
                                                     </div>
                                                     <button type="submit" class="btn btn-primary ">
@@ -171,8 +173,8 @@
                                                 </div>
                                             </div>
 
-                                            <input type="hidden" name="product_id" value="{{$product->id}}">
-                                            
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+
                                         </form>
 
                                         <div class="social-links-wrapper">
@@ -191,12 +193,20 @@
                                                 </div>
                                             </div>
                                             <span class="divider d-xs-show"></span>
-                                            <div class="product-link-wrapper d-flex">
-                                                <a href="#"
-                                                    class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
-                                                <a href="#"
-                                                    class="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
-                                            </div>
+                                            @if (isset(Auth()->user()->role))
+                                                @if (Auth()->user()->role == '0')
+                                                    <div class="product-link-wrapper d-flex">
+                                                        <a href="{{route('productdelete',['id'=>$product->id])}}"
+                                                            class="btn-product-icon btn-icon-left "><span><i
+                                                                    class='fas fa-trash-alt'
+                                                                    style='width: 24px; color:red'></i></span></a>
+                                                        <a href="{{route('productedit',['id' => $product->id])}}"
+                                                            class="btn-product-icon  btn-icon-left "><span><i class='fas fa-edit'
+                                                                    style='width: 24px; color:rgb(43, 204, 204)'></i></span></a>
+                                                    </div>
+                                                @endif
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +252,7 @@
                                                             style="background-color: #353B55;" />
                                                     </figure>
                                                 </div>
-                                                {{-- <div class="col-md-6 pl-2 pl-md-6 mb-4">
+                                                <div class="col-md-6 pl-2 pl-md-6 mb-4">
                                                     <div class="vendor-user">
 
                                                         <div>
@@ -253,7 +263,7 @@
                                                                     <span class="ratings" style="width: 90%;"></span>
                                                                     <span class="tooltiptext tooltip-top"></span>
                                                                 </div>
-                                                                <a href="#" class="rating-reviews">(32 Reviews)</a>
+                                                                <a href="#" class="rating-reviews">(Reviews)</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -275,7 +285,7 @@
                                                     <a href="vendor-dokan-store.html"
                                                         class="btn btn-dark btn-link btn-underline btn-icon-right">Visit
                                                         Store<i class="w-icon-long-arrow-right"></i></a>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         @endforeach
                                     </div>
