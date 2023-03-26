@@ -33,10 +33,7 @@
     activeside @endif">My Product</a>
 </li>
 @endif
-<li class="nav-item">
-    <a href="{{route('myproduct')}}" class="nav-link @if (URL::current()==URL::to('addresses'))
-    activeside @endif">Addresses</a>
-</li>
+
 <li class="link-item">
     <a href="{{route('accountdetails')}}" class="link-link @if (URL::current()==URL::to('accountdetails'))
     activeside @endif">Account details</a>
@@ -46,10 +43,15 @@
     <a href="{{route('watchlist')}}" class="link-link @if (URL::current()==URL::to('watchlist'))
     activeside @endif">Wishlist</a>
 </li>
-<form class="link-item" action="{{ route('logout') }}" method="post">
-    @csrf
+<li class="link-item">
     <label class="link-link" for="Logout">Logout</label>
-    <button class="d-none" id="Logout" type="submit">Logout</button>
+    <form class="link-item d-none" action="{{ route('logout') }}" method="post">
+    @csrf
+    
+    <button class="d-none" id="Logout" type="submit"></button>
 </form>
+
+
+</li>
 
 

@@ -3,10 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
-use Illuminate\Support\Facades\View;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 
 use Illuminate\Routing\Controller;
 
@@ -15,7 +11,6 @@ use App\Models\product;
 use App\Models\reviews;
 
 use Illuminate\Http\Request;
-use PHPUnit\Framework\Constraint\IsTrue;
 
 class productcontroller extends Controller
 {
@@ -143,7 +138,7 @@ class productcontroller extends Controller
             $data = $data->get();
         }
 
-        // dd($data);
+
         return view('filterproduct', compact('data', 'search'));
     }
 
@@ -161,26 +156,7 @@ class productcontroller extends Controller
 
         dd($HightTolow);
 
-        // return view('filterproduct', compact('datas'));
 
-        // // if($data = Session::get('customer_data')) {
-        // // dump($data);
-        // // }
-
-        // foreach ($request->all() as $value) {
-        //     dd($value);
-        // }
-        // dd($request->all());
-        // Request $request
-        // reviews::create([
-        //     'product_id' => $request->product_id,
-        //     'user_id' => $request->user_id,
-        //     'reting' => $request->rating,
-        //     'comment' => $request->comment,
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        // ]);
-        //
     }
     public function productdelete(Request $request)
     {
@@ -201,7 +177,7 @@ class productcontroller extends Controller
         $product = product::where('id', $request->id)
             ->get()
             ->first();
-        // dd($product);
+        
         return View('admin/productedit', compact('product'));
     }
     public function producteditStore(Request $request)

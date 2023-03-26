@@ -12,7 +12,7 @@
     <meta name="author" content="D-THEMES">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{asset('img\super it.jpg')}}">
+    <link rel="icon" type="image/png" href="{{ asset('img\super it.jpg') }}">
 
     <!-- WebFont.js -->
     <script>
@@ -98,12 +98,12 @@
     <!-- Default CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('userstyle') }}/assets/css/style.min.css">
     <style>
-        .activeside{
+        .activeside {
             border-bottom: solid rgb(0, 157, 214);
-            
-            
+
+
         }
-        
+
         @media only screen and (max-width: 765px) {
 
             .menuhide {
@@ -134,10 +134,17 @@
             {{ session('message') }}
         </div>
     @endif
-    @if (session('error'))
-        <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995)"
-            class="alert alert-dark" role="alert">
-            {{ session('error') }}
+
+    @if (count($errors) > 0)
+        <div style="width: fit-content; position: absolute; top: 50%;left: 50%; z-index: 88888888888; background-color: rgba(252, 251, 255, 0.995) "class="alert
+            alert-danger">
+            <ul>
+
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+
+            </ul>
         </div>
     @endif
 
@@ -159,7 +166,7 @@
 
     <!-- Plugin JS File -->
     <script src="{{ asset('userstyle') }}/assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
-    
+
 
     <script src="{{ asset('userstyle') }}/assets/vendor/sticky/sticky.js"></script>
     <script src="{{ asset('userstyle') }}/assets/vendor/jquery.plugin/jquery.plugin.min.js"></script>

@@ -80,7 +80,7 @@ class sociallog extends Controller
             $fbuser = User::create([
                 'role' => '1',
                 'name' => $user->name,
-                // 'email'=> $user->email,
+              
                 'socialite_id' => $user->id,
 
                 'profile_photo_path' => $user->getAvatar(),
@@ -90,6 +90,6 @@ class sociallog extends Controller
 
         return redirect()->route('dashboard');
     }
-        // $user->token;
+        
     
 }

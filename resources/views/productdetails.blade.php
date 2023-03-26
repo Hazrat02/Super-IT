@@ -759,5 +759,81 @@
         </div>
         <!-- End of PhotoSwipe -->
 
+
+
+
+
+        <div class="mobile-menu-wrapper">
+    <div class="mobile-menu-overlay"></div>
+    <!-- End of .mobile-menu-overlay -->
+
+    <a href="#" class="mobile-menu-close"><i class="close-icon"></i></a>
+    <!-- End of .mobile-menu-close -->
+
+    <div style="background-color: rgb(181, 200, 200)" class="mobile-menu-container scrollable">
+        <form action=" {{ route('search') }}" method="get" class="input-wrapper form-group">
+            @csrf
+            <select id="category" class="form-control col-4 p-0" name="category">
+                <option value="">All Categories</option>
+                <option value="fashion">Fashion</option>
+                <option value="furniture">Furniture</option>
+                <option value="shoes">Shoes</option>
+                <option value="sports">Sports</option>
+                <option value="games">Games</option>
+                <option value="computers">Computers</option>
+                <option value="electronics">Electronics</option>
+                <option value="kitchen">Kitchen</option>
+                <option value="clothing">Clothing</option>
+            </select>
+            <input type="text" class="form-control" name="name" autocomplete="off" placeholder="Search"
+                required />
+            <button class="btn btn-search" type="submit">
+                <i class="w-icon-search"></i>
+            </button>
+        </form>
+        <!-- End of Search Form -->
+
+
+
+
+        <div class="tab-content">
+ 
+                @guest
+                    <li class="link-item ">
+                        <a href="{{ route('home') }}" class="link-link">Home</a>
+                    </li>
+                    <li class="link-item ">
+                        <a href="{{ route('login') }}" class="link-link">Login</a>
+                    </li>
+
+
+                @endguest
+
+                @auth
+                    <li class="link-item">
+                        <label class="link-link" for="Logout">Logout</label>
+                        <form class="link-item d-none" action="{{ route('logout') }}" method="post">
+                            @csrf
+
+                            <button class="d-none" id="Logout" type="submit"></button>
+                        </form>
+
+
+                    </li>
+                    <li class="link-item ">
+                        <a href="{{ route('deshboard') }}" class="link-link">Deshboard</a>
+                    </li>
+
+                @endauth
+        
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
     </body>
 @endsection

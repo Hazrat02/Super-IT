@@ -35,28 +35,14 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         Paginator::useBootstrapFour();
 
-        //      $a=Auth::user()->name;
-        //
-
-        //    $d=dd($a);
-        //     View::share('addtocard', $d);
-
+        // ADD TO CARD
         View::composer('*', function ($view) {
             $data = addtocard::where('customar_id', Auth::id())
                 ->with('product')
                 ->get();
                 View::share('addtocard', $data);
-                // $view->with('addtocard', $this->data->count());
-            // $view->with('addtocard', $this->$data);
+
         });
     }
-    // public function card(view $view): void
-
-    // {
-
-    //     $data=addtocard::where('user_id',Auth::id())->with('product')->get();
-
-    //     $view->with('addtocard', $this->$data);
-    //     View::share('addtocard', $data);
-    // }
+ 
 }

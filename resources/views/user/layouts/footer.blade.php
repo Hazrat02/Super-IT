@@ -1,4 +1,4 @@
-<footer style="background-color: rgb(18, 14, 9);color: aliceblue">
+<footer style="background-color: rgb(18, 14, 9);color: aliceblue " id="ContactUs" >
     <div class="container ">
         <div class="row py-2">
             <div class="col-md-4">

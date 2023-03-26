@@ -5,7 +5,6 @@ use App\Http\Controllers\productcontroller;
 use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
- 
 
 /*
 |--------------------------------------------------------------------------
@@ -21,54 +20,62 @@ use Laravel\Socialite\Facades\Socialite;
 
 // Route::get('/user', [admincontroller::class, 'userdata'])->name('User.Manage');
 
-Route::get('/',[productcontroller::class,'getproduct']
-)->name('home');
+// all user
 
-Route::middleware([
-    'auth:sanctum',
-    
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::get('/', [productcontroller::class, 'getproduct'])->name('home');
 
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
-
-//  google auth----------------------
-Route::get('/auth/google', function () {
-    return Socialite::driver('google')->redirect();
-})->name('log.google');
-
-Route::get('/login/google/auth', [sociallog::class, 'googlestore']);
-
-
-//  fb auth----------------------
-Route::get('/fb/auth/redirect', [sociallog::class, 'redirectToFacebook'])->name('log.fb');
-Route::get('/fb/auth', [sociallog::class, 'handleFacebookCallback']);
-
-//  github auth----------------------
-Route::get('/github/auth/redirect', [sociallog::class, 'redirectToProvider'])->name('log.github');
-Route::get('/auth/github', [sociallog::class, 'handleProviderCallback']);
-
-
-// SSLCOMMERZ Start
-
-
-Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
-Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
-
-Route::post('/success', [SslCommerzPaymentController::class, 'success']);
-Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
-Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
-
-Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
-//SSLCOMMERZ END
-
-
-
-
-
 // contact Us
 Route::post('/contact.us', [admincontroller::class, 'contactus'])->name('contactus');
+
+
+
+
+
+
+
+// ===================================================================================================================
+
+Route::middleware(['guest'])->group(function () {
+    // guest
+
+
+    //  google auth----------------------
+    Route::get('/auth/google', function () {
+        return Socialite::driver('google')->redirect();
+    })->name('log.google');
+
+    Route::get('/login/google/auth', [sociallog::class, 'googlestore']);
+
+    //  fb auth----------------------
+    Route::get('/fb/auth/redirect', [sociallog::class, 'redirectToFacebook'])->name('log.fb');
+    Route::get('/fb/auth', [sociallog::class, 'handleFacebookCallback']);
+
+    //  github auth----------------------
+    Route::get('/github/auth/redirect', [sociallog::class, 'redirectToProvider'])->name('log.github');
+    Route::get('/auth/github', [sociallog::class, 'handleProviderCallback']);
+
+});
+
+
+// =====================================================================================================================
+
+// SSLCOMMERZ Start
+Route::middleware(['auth'])->group(function () {
+    // auth
+    Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+    Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+    Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+    Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+    Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+    Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+});
+
+//SSLCOMMERZ END
+

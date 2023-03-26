@@ -24,8 +24,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::post('admin/user/edit/store', [admincontroller::class, 'store'])->name('edit.store');
    // Money.Manage
+
+   Route::get('admin/money/manage', [admincontroller::class, 'moneyindex'])->name('Money.Manage');
+   Route::get('admin/allproduct', [admincontroller::class, 'allproduct'])->name('allproduct');
+   Route::get('admin/ordermanage', [admincontroller::class, 'ordermanage'])->name('ordermanage');
+
     
 });
-Route::get('admin/money/manage', [admincontroller::class, 'moneyindex'])->name('Money.Manage');
-Route::get('admin/allproduct', [admincontroller::class, 'allproduct'])->name('allproduct');
-Route::get('admin/ordermanage', [admincontroller::class, 'ordermanage'])->name('ordermanage');

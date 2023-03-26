@@ -17,20 +17,19 @@ box-shadow: 0px 0px 8px 1px #888888;"
           /
           /
           /---------------_--------------------------->
-         
+
         <div class="d-flex">
             <div>
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
                     aria-controls="offcanvasScrolling">
-                    
+
                     <img style="width: 30px;background: white;border-radius: 100px"
-                        src=" @if (isset(Auth::user()->socialite_id))
-                        {{Auth::user()->profile_photo_path}}
+                        src=" @if (isset(Auth::user()->socialite_id)) {{ Auth::user()->profile_photo_path }}
                         @else
                         
                         @if (isset(Auth::user()->profile_photo_path))
 
-                            {{asset('storage\profile')}}\{{Auth::user()->profile_photo_path}}
+                            {{ asset('storage\profile') }}\{{ Auth::user()->profile_photo_path }}
                             @else
                             https://cdn-icons-png.flaticon.com/512/149/149071.png @endif 
                             @endif"
@@ -79,7 +78,8 @@ box-shadow: 0px 0px 8px 1px #888888;"
                                     <i class="fab fa-facebook"></i>
                                 </a>
 
-                                <a href="{{route('log.github')}}" type="button" class="btn btn-link btn-outline-info mx-1">
+                                <a href="{{ route('log.github') }}" type="button"
+                                    class="btn btn-link btn-outline-info mx-1">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -105,20 +105,17 @@ box-shadow: 0px 0px 8px 1px #888888;"
                         </div>
                         <div class="offcanvas-body text-center">
                             <img style="width: 50px;background: white;border-radius: 100px"
-                           
-                            src="
-                            @if (isset(Auth::user()->socialite_id))
-                            {{Auth::user()->profile_photo_path}}
+                                src="
+                            @if (isset(Auth::user()->socialite_id)) {{ Auth::user()->profile_photo_path }}
                             @else
                             
                             @if (isset(Auth::user()->profile_photo_path))
 
-                                {{asset('storage\profile')}}\{{Auth::user()->profile_photo_path}}
+                                {{ asset('storage\profile') }}\{{ Auth::user()->profile_photo_path }}
                                 @else
                                 https://cdn-icons-png.flaticon.com/512/149/149071.png @endif 
                                 @endif
                                 "
-
                                 alt="/icon/free-user-icon-3296-thumb.png">
 
                             <p>{{ Auth::user()->email }}</p>
@@ -194,7 +191,7 @@ box-shadow: 0px 0px 8px 1px #888888;"
             }
 
             .searchtext {
-                background: none;
+                background: black;
                 border: none;
                 width: 0px;
                 outline: none;
@@ -209,16 +206,22 @@ box-shadow: 0px 0px 8px 1px #888888;"
                 border: none;
                 border-radius: 30px;
                 outline: none;
-                width: 20px;
+                width: 80px;
 
 
             }
+
+            @media only screen and (max-width: 554px) {
+                .searchbody {
+                    display:  none;
+                }
+            }
         </style>
 
-        <form class="bg-black searchbody" action="{{route('search')}}" method="GET">
+        <form class="bg-black searchbody" action="{{ route('search') }}" method="GET">
             @csrf
             <input type="search" class="searchtext rounded-100" name="name" placeholder="Search..">
-            
+
 
 
             <button class="searchbtn" type="submit">

@@ -27,7 +27,7 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-        // dd($input['social_photo_path']);
+       
 
         if (isset($input['social_photo_path'])) {
             $name = $input['social_photo_path'];
@@ -35,11 +35,10 @@ class CreateNewUser implements CreatesNewUsers
             
         $file = $input['profile_photo_path'];
         
-        // $extension = $file->getClientOriginalExtension();
+        
         $name =rand(0000000,999999) .$file->getClientOriginalName();
         $file->move(public_path('storage/profile'), $name);
-        // $save = $file->storeAs('public/profile',$name);
-        
+       
     
 
         }

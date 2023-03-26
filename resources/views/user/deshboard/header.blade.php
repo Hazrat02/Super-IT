@@ -46,7 +46,7 @@
                 </div>
                 <div class="header-right ml-4">
                     <div class="header-call d-xs-show d-lg-flex align-items-center">
-                        <a href="tel:#" class="w-icon-call"></a>
+                        <a href="tel:#" class=""><i style="font-size:24px" class="fa">&#xf0e0;</i></a>
                         <div class="call-info d-lg-show">
                             <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
                                 <a href="mailto:#" class="text-capitalize">Live Chat</a>
@@ -90,7 +90,7 @@
         </circle>
     </svg> </a>
 <!-- End of Scroll Top -->
-<div  class="mobile-menu-wrapper">
+<div class="mobile-menu-wrapper">
     <div class="mobile-menu-overlay"></div>
     <!-- End of .mobile-menu-overlay -->
 
@@ -98,18 +98,36 @@
     <!-- End of .mobile-menu-close -->
 
     <div style="background-color: rgb(181, 200, 200)" class="mobile-menu-container scrollable">
-        <form action="#" method="get" class="input-wrapper">
-            <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search"
+        <form action=" {{ route('search') }}" method="get" class="input-wrapper form-group">
+            @csrf
+            <select id="category" class="form-control col-4 p-0" name="category">
+                <option value="">All Categories</option>
+                <option value="fashion">Fashion</option>
+                <option value="furniture">Furniture</option>
+                <option value="shoes">Shoes</option>
+                <option value="sports">Sports</option>
+                <option value="games">Games</option>
+                <option value="computers">Computers</option>
+                <option value="electronics">Electronics</option>
+                <option value="kitchen">Kitchen</option>
+                <option value="clothing">Clothing</option>
+            </select>
+            <input type="text" class="form-control" name="name" autocomplete="off" placeholder="Search"
                 required />
             <button class="btn btn-search" type="submit">
                 <i class="w-icon-search"></i>
             </button>
         </form>
         <!-- End of Search Form -->
-   
-        <div  class="tab-content">
-                @include('user/deshboard/sidebar')
-            
+
+
+
+        <div class="tab-content">
+
+            @include('user/deshboard/sidebar')
+
+
+
         </div>
     </div>
 

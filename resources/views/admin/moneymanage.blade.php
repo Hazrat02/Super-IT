@@ -9,11 +9,7 @@
             <h4>total user:{{ $money->count() }}</h4>
             <h4>total balance:{{$money->sum('balance')}}$
                 <p>{{$page}}</p>
-                {{-- @foreach ($money as $item)
-                {{ 
-            
-                    $item->balance->sum() }}
-                @endforeach --}}
+
                 </h4>
         </div>
         <table class="table table-striped">

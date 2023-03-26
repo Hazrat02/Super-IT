@@ -2,30 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+
 use Illuminate\Routing\Controller;
 use App\Models\User;
 use App\Models\money;
-use App\Models\User as ModelsUser;
+
 use Illuminate\Http\Request;
 
 
-use Illuminate\Container\Container;
-use Illuminate\Pagination\LengthAwarePaginator;
-use App\CustomClasses\ColectionPaginate;
-use App\Http\Middleware\admin;
+
 use App\Models\order;
 use App\Models\product;
 use App\Models\contactUS;
-use App\Models\reviews;
-use Illuminate\Support\Collection;
-use Illuminate\Support\mail;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\AppServiceProvider;
+
  
 class admincontroller extends Controller
 
@@ -150,7 +139,6 @@ class admincontroller extends Controller
         ]
         );
         
-        // mail($request->email,"contact with me",$request->sms,$request->name,'bal');
       
 
         return redirect()->back()->withmassege('Your mail sent in Our support team!');

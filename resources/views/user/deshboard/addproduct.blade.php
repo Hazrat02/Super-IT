@@ -82,9 +82,9 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input  type="text"  required id="discription" name="discription" placeholder="discription (min-200)"
+                                                <input  type="text" pattern=".{200,}" title="200 or more characters"  required id="discription" name="discription" placeholder="discription (min-200)"
                                                     class="form-control form-control-lg" />
-                                                    {{-- pattern=".{200,}" title="200 or more characters" --}}
+                                                    
 
                                                 <label class="form-label"  for="discription">Discription</label>
                                             </div>
